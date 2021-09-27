@@ -38,7 +38,12 @@ class MuseumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $museum = new Museum;
+        $museum->name = request('name');
+        $museum->address = request('address');
+        $museum->category_id = request('category_id');
+        $museum->save();
+        return redirect()->route('museum.detail', ['id' => $museum->id]);
     }
 
     /**
@@ -59,9 +64,11 @@ class MuseumController extends Controller
      * @param  \App\Museum  $museum
      * @return \Illuminate\Http\Response
      */
-    public function edit(Museum $museum)
+    public function edit(Museum $museum, $id)
     {
-        //
+        $museum = Museum::find($id);
+        $categories = Category::all()->pluck('name', 'id');
+        return view('edit', ['museum' => $museum, 'categories' => $categories]); 
     }
 
     /**
@@ -71,9 +78,14 @@ class MuseumController extends Controller
      * @param  \App\Museum  $museum
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Museum $museum)
+    public function update(Request $request, Museum $museum, $id)
     {
-        //
+        $museum = Museum::find($id);
+        $museum->name = request('name');
+        $museum->address = request('address');
+        $museum->category_id = request('category_id');
+        $museum->save();
+        return redirect()->route('museum.detail', ['id' => $museum->id]);
     }
 
     /**
@@ -82,8 +94,10 @@ class MuseumController extends Controller
      * @param  \App\Museum  $museum
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Museum $museum)
+    public function destroy($id)
     {
-        //
+        $museum = Museum::find($id);
+        $museum->delete();
+        return redirect('/museums');
     }
 }

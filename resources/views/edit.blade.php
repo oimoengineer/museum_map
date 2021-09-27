@@ -1,9 +1,8 @@
 @extends('layout')
 
 @section('content')
-  <h1>新規投稿</h1>
-  <p>おすすめの美術館を追加する</p>
-  {{Form::open(['route' => 'museum.store'])}}
+  <h1>「{{$museum->name}}」の投稿内容を編集する</h1>
+  {{ Form::model($museum, ['route' => ['museum.update', $museum->id]]) }}
     <div class="form-group">
       {{Form::label('name', '施設名:')}}
       {{Form::text('name', null)}}
@@ -17,7 +16,7 @@
       {{ Form::select('category_id', $categories) }}
     </div><!-- /.form-group -->
     <div class="form-group">
-      {{Form::submit('作成する', ['class' => 'btn btn-primary'])}}
+      {{Form::submit('更新する', ['class' => 'btn btn-primary'])}}
     </div><!-- /.form-group -->
   {{Form::close()}}
 

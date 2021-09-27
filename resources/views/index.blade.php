@@ -9,14 +9,18 @@
     </tr>
     @foreach ($museums as $museum)
       <tr>
-        <td>{{$museum->category->name}}</td>
+        <td>{{ $museum->category->name }}</td>
         <td>
-          <a href={{route('museum.detail', ['id' => $museum->id])}}>
-          {{$museum->name}}
+          <a href={{ route('museum.detail', ['id' => $museum->id]) }}>
+          {{ $museum->name }}
           </a>
         </td>
-        <td>{{$museum->address}}</td>
+        <td>{{ $museum->address }}</td>
       </tr>
     @endforeach
   </table>
+
+  <div>
+    <a href={{ route('museum.new') }} class='btn btn-outline-primary'>新しい美術館</a>
+  </div>
 @endsection
