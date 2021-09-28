@@ -1,5 +1,6 @@
 <?php
 
+Route::get('/welcome', 'MuseumController@welcome')->name('museum.welcome');
 Route::get('/museums', 'MuseumController@index')->name('museum.list');
 Route::get('/museum/new', 'MuseumController@create')->name('museum.new');
 Route::post('/museum', 'MuseumController@store')->name('museum.store');
@@ -17,3 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
