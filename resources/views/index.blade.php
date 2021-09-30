@@ -3,9 +3,11 @@
 @section('content')
   <div class="mt-2 mb-2 d-flex justify-content-between">
     <h1>美術館一覧</h1>
+    @auth
     <div>
       <a href={{ route('museum.new') }} class='btn btn-outline-primary'>美術館を追加する</a>
     </div>
+    @endauth
   </div><!-- /.d-flex -->
   <p class="fs-5 mb-4">
     みんなのおすすめ美術館一覧です。施設名をクリックすると詳細情報を見ることが出来ます。

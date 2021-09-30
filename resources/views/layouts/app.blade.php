@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('APP_NAME', 'Museum Map') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -21,10 +21,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-success shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('APP_NAME', 'Museum Map') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -76,5 +76,6 @@
             @yield('content')
         </main>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>

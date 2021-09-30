@@ -15,7 +15,7 @@ class AddUserInfoToMuseumesTable extends Migration
     {
         Schema::table('museums', function (Blueprint $table) {
             $table->string('comment');
-            $table->integer('user\id');
+            $table->integer('user_id');
         });
     }
 

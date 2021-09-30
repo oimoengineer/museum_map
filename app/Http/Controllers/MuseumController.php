@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 class MuseumController extends Controller
 {
     
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['welcome','index', 'show']);
+    }
+
+
     public function welcome()
     {
         return view('welcome');
