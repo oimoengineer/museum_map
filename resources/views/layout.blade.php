@@ -12,8 +12,8 @@
   
 </head>
 <body>
-  <nav class="navbar navbar-extend-md navbar-dark bg-primary fixed-top">
-    <a class="navbar-brand" href={{route('museum.list')}}>Museum Map</a>
+  <nav class="navbar navbar-extend-md navbar-dark bg-success fixed-top">
+    <a class="navbar-brand ms-3" href={{route('museum.list')}}>Museum Map</a>
     
   </nav>
   <div class="container">

@@ -48,6 +48,7 @@ class MuseumController extends Controller
         $museum->name = request('name');
         $museum->address = request('address');
         $museum->category_id = request('category_id');
+        $museum->comment = request('comment');
         $museum->save();
         return redirect()->route('museum.detail', ['id' => $museum->id]);
     }
@@ -90,6 +91,7 @@ class MuseumController extends Controller
         $museum->name = request('name');
         $museum->address = request('address');
         $museum->category_id = request('category_id');
+        $museum->comment = request('comment');
         $museum->save();
         return redirect()->route('museum.detail', ['id' => $museum->id]);
     }

@@ -1,11 +1,18 @@
 @extends('layout')
 
 @section('content')
-  <h1>美術館一覧</h1>
-
-  <table class="table table-hover">
+  <div class="mt-2 mb-2 d-flex justify-content-between">
+    <h1>美術館一覧</h1>
+    <div>
+      <a href={{ route('museum.new') }} class='btn btn-outline-primary'>美術館を追加する</a>
+    </div>
+  </div><!-- /.d-flex -->
+  <p class="fs-5 mb-4">
+    みんなのおすすめ美術館一覧です。施設名をクリックすると詳細情報を見ることが出来ます。
+  </p>
+  <table class="table table-hover fs-5">
     <tr>
-      <th class="table-primary">カテゴリ</th><th class="table-primary">施設名</th><th class="table-primary">住所</th>
+      <th class="table-success">カテゴリ</th><th class="table-success">施設名</th><th class="table-success">住所</th>
     </tr>
     @foreach ($museums as $museum)
       <tr>
@@ -20,7 +27,5 @@
     @endforeach
   </table>
 
-  <div>
-    <a href={{ route('museum.new') }} class='btn btn-outline-primary'>新しい美術館</a>
-  </div>
+  
 @endsection
