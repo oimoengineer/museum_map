@@ -12,7 +12,7 @@
   
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-success shadow-sm fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm fixed-top">
             <div class="container">
                 <a class="navbar-brand fs-3" href="{{ url('/') }}">
                     {{ config('APP_NAME', 'Museum Map') }}
