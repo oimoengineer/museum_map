@@ -1,33 +1,37 @@
 @extends('layout')
 
 @section('content')
-  <div class="mt-2 mb-2 d-flex justify-content-between">
-    <h1>美術館一覧</h1>
-    @auth
+  <div class="mt-2 mb-2 d-flex">
+    <h2>おすすめ一覧</h2>
+    <ul class='nav justify-content-end fs-5 mt-2'>
+      <li class='nav-item'><a class='text-decoration-none me-3 ms-5' href="#">美術館</a></li>
+      <li class='nav-item'><a class='text-decoration-none me-3' href="#">博物館</a></li>
+      <li class='nav-item'><a class='text-decoration-none' href="#">ギャラリー</a></li>
+    </ul>
+    
+  </div><!-- /.d-flex -->
+
+  <div class="row">
+    @foreach ($museums as $museum)
+  <div class="col-sm-4">
+  <div class="card">
+  <img src="https://picsum.photos/50/50" class="card-img-top" alt="dummy-img">
+  <div class="card-body">
+    <h5 class="card-title">{{ $museum->name }}</h5>
+    <p class="card-text">
+      住所：{{ $museum->address }}</p>
+    <p class="card-text">カテゴリ：{{ $museum->category->name }}</p>
+    <a href={{ route('museum.detail', ['id' => $museum->id]) }} class="btn btn-primary">詳細を見る</a>
+  </div>
+  </div><!-- /.col-sm-6 -->
+</div>
+@endforeach
+</div><!-- /.d-flex -->
+
+  @auth
     <div>
       <a href={{ route('museum.new') }} class='btn btn-outline-primary'>美術館を追加する</a>
     </div>
     @endauth
-  </div><!-- /.d-flex -->
-  <p class="fs-5 mb-4">
-    みんなのおすすめ美術館一覧です。施設名をクリックすると詳細情報を見ることが出来ます。
-  </p>
-  <table class="table table-hover fs-5">
-    <tr>
-      <th class="table-success">カテゴリ</th><th class="table-success">施設名</th><th class="table-success">住所</th>
-    </tr>
-    @foreach ($museums as $museum)
-      <tr>
-        <td>{{ $museum->category->name }}</td>
-        <td>
-          <a href={{ route('museum.detail', ['id' => $museum->id]) }}>
-          {{ $museum->name }}
-          </a>
-        </td>
-        <td>{{ $museum->address }}</td>
-      </tr>
-    @endforeach
-  </table>
-
   
 @endsection
