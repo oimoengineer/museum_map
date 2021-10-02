@@ -28,10 +28,5 @@
 @endforeach
 </div><!-- /.d-flex -->
 
-  @auth
-    <div>
-      <a href={{ route('museum.new') }} class='btn btn-outline-primary'>美術館を追加する</a>
-    </div>
-    @endauth
   
 @endsection
