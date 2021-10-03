@@ -21,7 +21,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
@@ -40,7 +40,8 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                        <div class=''><a href={{ route('museum.new') }} class='btn btn-outline-light'>美術館を追加する</a></div>
+                            <li class="nav-item dropdown ms-3">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -57,7 +58,6 @@
                                     </form>
                                 </div>
                             </li>
-                            <li><a href={{ route('museum.new') }} class='btn btn-outline-light'>美術館を追加する</a></li>
                         @endguest
                     </ul>
                 </div>
