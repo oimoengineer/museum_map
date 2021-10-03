@@ -19,10 +19,14 @@
   <div class="d-flex justify-content-between">
     <p class="me-2 mt-2 fs-5">
     <a href={{route('museum.list')}}>一覧に戻る</a>
+    @auth
+      @if($museum->user_id === $login_user_id)
       | <a href={{route('museum.edit', ['id' => $museum->id]) }}>編集</a>
     </p>
     {{ Form::open(['method' => 'delete', 'route' => ['museum.destroy', $museum->id]]) }}
         {{ Form::submit('削除', ['class' => 'btn btn-outline-danger']) }}
     {{ Form::close() }}
+      @endif
+    @endauth
   </div>
 @endsection

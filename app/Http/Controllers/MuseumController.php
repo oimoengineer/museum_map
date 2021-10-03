@@ -51,10 +51,13 @@ class MuseumController extends Controller
     public function store(Request $request)
     {
         $museum = new Museum;
+        $user = \Auth::user();
+
         $museum->name = request('name');
         $museum->address = request('address');
         $museum->category_id = request('category_id');
         $museum->comment = request('comment');
+        $museum->user_id = $user->id;
         $museum->save();
         return redirect()->route('museum.detail', ['id' => $museum->id]);
     }
@@ -68,7 +71,13 @@ class MuseumController extends Controller
     public function show($id)
     {
         $museum = Museum::find($id);
-        return view('show', ['museum' => $museum] );
+        $user = \Auth::user();
+        if ($user) {
+            $login_user_id = $user->id;
+        } else {
+            $login_user_id = '';
+        }
+        return view('show', ['museum' => $museum, 'login_user_id' => $login_user_id] );
     }
 
     /**

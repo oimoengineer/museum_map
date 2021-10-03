@@ -20,6 +20,7 @@
     <h5 class="card-title">{{ $museum->name }}</h5>
     <p class="card-text">
       住所：{{ $museum->address }}</p>
+      <p class="card-text">投稿者：{{ $museum->user->name }}</p>
     <p class="card-text">カテゴリ：{{ $museum->category->name }}</p>
     <a href={{ route('museum.detail', ['id' => $museum->id]) }} class="btn btn-primary">詳細を見る</a>
   </div>
