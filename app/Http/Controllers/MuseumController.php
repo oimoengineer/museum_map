@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Museum;
 use App\Category;
+use Storage;
 use Illuminate\Http\Request;
 
 class MuseumController extends Controller
@@ -58,6 +59,8 @@ class MuseumController extends Controller
         $museum->category_id = request('category_id');
         $museum->comment = request('comment');
         $museum->user_id = $user->id;
+        $filename=$request->$file('thefile')->store('public');
+        $museum->museum_image = str_replace('public/', '', $filename);
         $museum->save();
         return redirect()->route('museum.detail', ['id' => $museum->id]);
     }
@@ -77,6 +80,7 @@ class MuseumController extends Controller
         } else {
             $login_user_id = '';
         }
+        Storage::disk('local')->exists('public/storage/' .$museum->museum_image);
         return view('show', ['museum' => $museum, 'login_user_id' => $login_user_id] );
     }
 
@@ -107,6 +111,8 @@ class MuseumController extends Controller
         $museum->address = request('address');
         $museum->category_id = request('category_id');
         $museum->comment = request('comment');
+        $filename=$request->$file('thefile')->store('public');
+        $museum->museum_image = str_replace('public/', '', $filename);
         $museum->save();
         return redirect()->route('museum.detail', ['id' => $museum->id]);
     }

@@ -13,4 +13,10 @@ class Museum extends Model
     public function user() {
         return $this->belongsTo('App\User');
     }
+
+    protected $fillable = [
+        'museums_image',
+    ];
+
+
 }

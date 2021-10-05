@@ -15,7 +15,7 @@
     @foreach ($museums as $museum)
   <div class="col-sm-4">
   <div class="card">
-  <img src="https://picsum.photos/50/50" class="card-img-top" alt="dummy-img">
+  <img src="{{ asset('/storage/'.$museum->museum_image)}}" class="card-img-top" alt="dummy-img">
   <div class="card-body">
     <h5 class="card-title">{{ $museum->name }}</h5>
     <p class="card-text">
