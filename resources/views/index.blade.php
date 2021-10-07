@@ -1,13 +1,24 @@
 @extends('layout')
 
 @section('content')
-  <div class="mt-2 mb-2 d-flex">
-    <h2>おすすめ一覧</h2>
-    <ul class='nav justify-content-end fs-5 mt-2'>
+  <div class="mt-2 mb-2 d-flex bd-highlight">
+    <h2 class='p-2 bd-highlight'>おすすめ一覧</h2>
+    <ul class='nav p-2 bd-highlight fs-5 mt-2'>
       <li class='nav-item'><a class='text-decoration-none me-3 ms-5' href="#m1">美術館</a></li>
       <li class='nav-item'><a class='text-decoration-none me-3' href="#m2">博物館</a></li>
       <li class='nav-item'><a class='text-decoration-none' href="#m3">ギャラリー</a></li>
     </ul> 
+    <form action="{{url('/search')}}" method="post" class="ms-auto p-2 bd-highlight">
+    {{ csrf_field()}}
+    {{method_field('get')}}
+    <div class="d-flex">
+    <div class="form-group">
+      <label>検索</label>
+      <input type="text" class="form-control col-md-5" placeholder="美術館・博物館・ギャラリー名を入力" name="name">
+    </div>
+    <button type="submit" class='btn btn-primary col-md-5 ms-3 align-self-end'>検索</button>
+    </div><!-- /.d-flex -->
+    </form>
   </div><!-- /.d-flex -->
   
   <!-- 美術館 -->

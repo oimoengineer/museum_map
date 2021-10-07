@@ -32,6 +32,24 @@ class MuseumController extends Controller
         return view('index', ['museums' => $museums]);
     }
 
+    public function search(Request $request)
+    {
+        $keyword_name = $request->name;
+
+        if(!empty($keyword_name)) {
+            $query = Museum::query();
+            $museums = $query->where('name','like', '%' .$keyword_name. '%')->get();
+            $message = "「". $keyword_name."」を含む施設の検索が完了しました。";
+            return view('/search')->with([
+            'museums' => $museums,
+            'message' => $message,
+        ]);
+        } else {
+            $message = '検索結果はありません。';
+            return view('/search')->with('message', $message);
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *

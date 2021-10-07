@@ -2,6 +2,7 @@
 
 Route::get('/welcome', 'MuseumController@welcome')->name('museum.welcome');
 Route::get('/museums', 'MuseumController@index')->name('museum.list');
+Route::get('/search', 'MuseumController@search');
 Route::get('/museum/new', 'MuseumController@create')->name('museum.new');
 Route::post('/museum', 'MuseumController@store')->name('museum.store');
 Route::get('/museum/edit/{id}', 'MuseumController@edit')->name('museum.edit');
