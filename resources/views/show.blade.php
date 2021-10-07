@@ -12,9 +12,9 @@
   <div class="show_box">
     <p><span class='fw-bold'>カテゴリ</span><br>
     {{$museum->category->name}}</p>
-    <p class="mt-1"><span class='fw-bold'>住所</span>
-    <br>{{$museum->address}}</p>
     <p class="mt-1"><span class='fw-bold'>URL</span>
+    <br>{{$museum->address}}</p>
+    <p class="mt-1"><span class='fw-bold'>住所</span>
     <br>{{$museum->address}}</p>
     <iframe id='map'
     src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCFZCHaIiCNwLYmESowh8759qvh18kgV8M&q={{ $museum->address }}" 
