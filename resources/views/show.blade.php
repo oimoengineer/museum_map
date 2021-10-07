@@ -2,20 +2,37 @@
 
 @section('content')
   <h1 class="mb-4">{{$museum->name}}</h1>
-  <div class="ms-2 fs-5">
-    <p>カテゴリ：{{$museum->category->name}}</p>
-    <p class="mt-1">住所：{{$museum->address}}</p>
+  
+  <div class="d-flex museum_img justify-content-between">
+    @if($museum->museum_image == null) 
+    <img src="{{ asset('images/no_img_big.png')}}" alt="no-image" class="img-fluid">
+    @else
+    <img src="{{ asset('/storage/'.$museum->museum_image)}}" alt="museum-img" class="img-fluid">
+    @endif
+  <div class="show_box">
+    <p><span class='fw-bold'>カテゴリ</span><br>
+    {{$museum->category->name}}</p>
+    <p class="mt-1"><span class='fw-bold'>住所</span>
+    <br>{{$museum->address}}</p>
+    <p class="mt-1"><span class='fw-bold'>URL</span>
+    <br>{{$museum->address}}</p>
+    <iframe id='map'
+    src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCFZCHaIiCNwLYmESowh8759qvh18kgV8M&q={{ $museum->address }}" 
+    width='100%'
+    height='280'
+    frameborder='0'>
+    </iframe>
   </div>
+  </div><!-- /.d-flex -->
+  
 
-  <iframe id='map'
-  src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCFZCHaIiCNwLYmESowh8759qvh18kgV8M&q={{ $museum->address }}" 
-  width='100%'
-  height='320'
-  frameborder='0'>
-</iframe>
-  <p class="fs-5 ms-2 mt-4">コメント<br>
-  {{$museum->comment}}
-  </p>
+  <p class="ms-2 mt-4"><span class='fw-bold'>コメント</span><br></p>
+  <div class="d-flex comment">
+    <img src="{{asset('/images/user_dummy.jpeg')}}" alt="user_img" class='me-4 ms-2 mt-2'>
+    <div class="balloon">
+      <p>{{$museum->comment}}</p>
+    </div><!-- /.balloon -->
+  </div><!-- /.comment -->
   <div class="d-flex justify-content-between">
     <p class="me-2 mt-2 fs-5">
     <a href={{route('museum.list')}}>一覧に戻る</a>

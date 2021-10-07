@@ -1,0 +1,77 @@
+/* common */
+body {
+  padding: 0 auto;
+  padding-top: 100px;
+}
+
+body .container {
+  width: 75%;
+  height: auto;
+  margin: 0 auto;
+}
+
+
+/* show.blade.php */
+.comment img{
+  width: 64px;
+  height: 64px;
+}
+
+/* コメント吹き出し */
+.balloon {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 7px 10px;
+  min-width: 90%;
+  color: #555;
+  font-size: 16px;
+  background: #FFF;
+  border: solid 3px #555;
+  box-sizing: border-box;
+}
+
+.balloon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -24px;
+  margin-top: -12px;
+  border: 12px solid transparent;
+  border-right: 12px solid #FFF;
+  z-index: 2;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -14px;
+  border: 14px solid transparent;
+  border-right: 14px solid #555;
+  z-index: 1;
+}
+
+.balloon p {
+  margin: 0;
+  padding: 2%;
+}
+
+.museum_img {
+  height: 50%;
+}
+
+.museum_img img {
+  max-width: 90%;
+  height: 90%;
+  margin-right: 5%;
+}
+
+.show_box{
+  width: 50%;
+  height: auto;
+  border: double 7px grey;
+  padding: 2%;
+}
+

@@ -28,7 +28,7 @@
     </div><!-- /.form-group -->
   {{Form::close()}}
 
-  <div class='mb-5'>
+  <div class=mb-5>
     <a href={{route('museum.list')}}>一覧に戻る</a>
   </div>
 @endsection
