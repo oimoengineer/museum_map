@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Museum;
 use App\Category;
+use App\User;
 use Storage;
 use Illuminate\Http\Request;
 
@@ -49,6 +50,12 @@ class MuseumController extends Controller
             return view('/search')->with('message', $message);
         }
     }
+
+    public function setting() {
+        $users = User::all();
+        return view('setting', ['users' => $users]);
+    }
+
 
     /**
      * Show the form for creating a new resource.
