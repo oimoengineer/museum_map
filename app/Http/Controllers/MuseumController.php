@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Museum;
 use App\Category;
 use App\User;
+use Auth;
 use Storage;
 use Illuminate\Http\Request;
 
@@ -51,11 +52,30 @@ class MuseumController extends Controller
         }
     }
 
-    public function setting() {
-        $users = User::all();
-        return view('setting', ['users' => $users]);
+    public function setting() 
+    {
+        $users = \Auth::user();
+        return view('setting', ['users' => $users] );
     }
 
+    public function setting_edit()
+    {
+        $users = \Auth::user();
+        return view('setting_edit', ['users' => $users] );
+    }
+
+    public function setting_update(Request $request, $id, User $users)
+    {
+        $users = User::find($id);
+        $users->name = request('name');
+        $users->email = request('email');
+        $users->password = request('password');
+        $filename=$request->$file('thefile')->store('public');
+        $users->user_image = str_replace('public/', '', $filename);
+        $users->save();
+        return redirect()->route('user.setting', ['id' => $users->id]);
+
+    }
 
     /**
      * Show the form for creating a new resource.
