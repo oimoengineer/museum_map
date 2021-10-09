@@ -116,7 +116,7 @@ class MuseumController extends Controller
      * @param  \App\Museum  $museum
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
         $museum = Museum::find($id);
         $user = \Auth::user();
@@ -126,7 +126,12 @@ class MuseumController extends Controller
             $login_user_id = '';
         }
         Storage::disk('local')->exists('public/storage/' .$museum->museum_image);
-        return view('show', ['museum' => $museum, 'login_user_id' => $login_user_id] );
+        
+
+        // likeMuseum
+        $likeMuseum = Auth::user()->likeMuseum()->pluck('museum_id');
+
+        return view('show', ['museum' => $museum, 'login_user_id' => $login_user_id], compact(['museum', 'likeMuseum']) );
     }
 
     /**
@@ -174,4 +179,13 @@ class MuseumController extends Controller
         $museum->delete();
         return redirect('/museums');
     }
+
+    // likeMuseums
+    public function like(MuseumSearchService $museumSearchService, Request $request)
+    {
+        
+    }
+
+
+
 }

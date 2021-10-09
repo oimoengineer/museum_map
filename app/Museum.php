@@ -14,9 +14,14 @@ class Museum extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function likeMuseum() {
+        return $this->hasMany('App\likeMuseum');
+    }
+
     protected $fillable = [
         'museums_image',
     ];
 
+    
 
 }

@@ -1,8 +1,13 @@
 @extends('layout')
 
 @section('content')
+  <div class="d-flex">
   <h1 class="mb-4">{{$museum->name}}</h1>
-  
+  <div id="app">
+    <like-component :museum-id='{{ $museum->id}}' :liked-data='{{ $likeMuseum }}'></like-component>
+  </div><!-- /#app -->
+  </div><!-- /.d-flex -->
+
   <div class="d-flex museum_img justify-content-between">
     @if($museum->museum_image == null) 
     <img src="{{ asset('images/no_img_big.png')}}" alt="no-image" class="img-fluid">
