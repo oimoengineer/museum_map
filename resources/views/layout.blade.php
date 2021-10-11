@@ -10,11 +10,10 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
   <title>Museum Nav</title>
-  <script src="{{ asset('js/app.js')}}" defer></script>
   
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm fixed-top">
+<nav class="common-nav bg-light navbar navbar-expand-md shadow-sm fixed-top">
             <div class="container">
                 <a class="navbar-brand fs-3" href="{{ url('/') }}">
                     {{ config('APP_NAME', 'Museum Nav') }}
@@ -42,7 +41,7 @@
                                 </li>
                             @endif
                         @else
-                        <div class=''><a href={{ route('museum.new') }} class='btn btn-outline-light'>美術館を追加する</a></div>
+                        <div class=''><a href={{ route('museum.new') }} class='btn btn-outline-dark'>美術館を追加する</a></div>
                             <li class="nav-item dropdown ms-3">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

@@ -3,6 +3,25 @@
 body {
   padding: 0 auto;
   padding-top: 100px;
+  background: #f4f4f4;
+  color: #59493b;
+}
+
+body a {
+  color: #316ab5;
+}
+
+body .common-nav a {
+  color: #59493b;
+}
+
+body h1 {
+  color: #282929;
+}
+
+/* 保留 */
+.body .btn {
+  border-color: #59493b;
 }
 
 body .container {
@@ -11,12 +30,70 @@ body .container {
   margin: 0 auto;
 }
 
+/* welcome */
+.main {
+  background: #f4f4f4;
+  padding-top: 0;
+}
+
+
+/* content */
+.content {
+  margin-left: 4%;
+  color: #59493b;
+  text-align: center;
+}
+
+.content p {
+  margin-top: 200px;
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.content h1 {
+  font-size: 5rem;
+  color: #59493b;
+  line-height: 1;
+}
+
+
+/* content 保留 */
+.smooth {
+  clip-path: inset(0 100% 0 0);
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: bold;
+  transition: 1.4s cubic-bezier(0.37, 0, 0.63, 1);
+  transition-property: clip-path;
+  line-height: 1;
+  height: 40px;
+  margin-top: 15px;
+}
+.smooth.is-animated {
+  clip-path: inset(0);
+}
+
+
+.key_visual {
+  margin-top: 100px;
+}
+
+
+
 
 /* show.blade.php */
 .comment img{
   width: 64px;
   height: 64px;
 }
+
+/* map */
+#map {
+  width: 100%;
+  height: 280px;
+}
+
 
 /* コメント吹き出し */
 .balloon {
@@ -25,10 +102,10 @@ body .container {
   margin: 1.5em 0 1.5em 15px;
   padding: 7px 10px;
   min-width: 90%;
-  color: #555;
+  color: #282929;
   font-size: 16px;
   background: #FFF;
-  border: solid 3px #555;
+  border: solid 3px #282929;
   box-sizing: border-box;
 }
 
@@ -50,7 +127,7 @@ body .container {
   left: -30px;
   margin-top: -14px;
   border: 14px solid transparent;
-  border-right: 14px solid #555;
+  border-right: 14px solid #282929;
   z-index: 1;
 }
 
@@ -72,26 +149,29 @@ body .container {
 .show_box{
   width: 50%;
   height: auto;
-  border: double 7px grey;
+  border: double 7px #e5c542;
   padding: 2%;
 }
 
 /* index.blade.php */
+#index {
+  
+
+}
+
 
 .card-body
 {
-  font-size: 1.3rem;
 }
 
 /* tag */
 .card-body span {
-  border: solid lightcoral 2px;
+  border: solid #d5c257 1px;
   border-radius: 10%;
-  background-color: lightcoral;
+  background-color: #d5c257;
   color: white;
   font-size: 1rem;
-  font-weight: bold;
-  padding: 1%;
+  padding: 2px;
   margin-right: 2%;
 }
 

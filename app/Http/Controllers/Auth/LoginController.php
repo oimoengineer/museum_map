@@ -42,7 +42,7 @@ class LoginController extends Controller
      * ログアウトした時の画面遷移先
      */
     protected function loggedOut(\Illuminate\Http\Request $request) {
-        return redirect('login');
+        return redirect('welcome');
     }
 
 }

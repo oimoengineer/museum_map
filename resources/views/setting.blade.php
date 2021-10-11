@@ -11,8 +11,6 @@
     <p class='border border-dark p-2 mb-4 rounded'>{{$users->name}}</p>
     <p>メールアドレス</p>
     <p class='border border-dark p-2 mb-4 rounded'>{{$users->email}}</p>
-    <p>パスワード</p>
-    <p class='border border-dark p-2 mb-4 rounded'>{{$users->password}}</p>
     </div>
   </div><!-- /.d-flex -->
   <div class="mt-4 mb-5">

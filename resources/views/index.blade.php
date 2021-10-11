@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+<div id="index">
 <div class="position-relative">
   <form action="{{url('/search')}}" method="post" class="ms-auto p-2 bd-highlight position-absolute end-0">
       {{ csrf_field()}}
@@ -26,7 +27,7 @@
   </div><!-- /.d-flex -->
   
   <!-- 美術館 -->
-  <p id='m1' class='border-start border-dark border-4 fs-4 ps-3 text-dark mt-4'>美術館</p>
+  <p id='m1' class='border-start border-dark border-4 fs-4 ps-3 mt-4'>美術館</p>
   <div class="row">
     @foreach ($museums as $museum)
     @if($museum->category_id === 1)
@@ -38,12 +39,11 @@
       <img src="{{ asset('/storage/'.$museum->museum_image)}}" class="card-img-top" alt="museum-img">
       @endif
       <div class="card-body">
-        <h5 class="card-title">{{ $museum->name }}</h5>
+        <h4 class="card-title">{{ $museum->name }}</h4>
         <p class="card-text">
           <span>住所</span><br>
           {{ $museum->address }}</p>
           <p class="card-text"><span>投稿者</span>{{ $museum->user->name }}</p>
-        <p class="card-text"><span>カテゴリ</span>{{ $museum->category->name }}</p>
         <a href={{ route('museum.detail', ['id' => $museum->id]) }} class="btn btn-primary">詳細を見る</a>
       </div>
       </div><!-- /.col-sm-6 -->
@@ -71,7 +71,6 @@
         <span>住所</span><br>
           {{ $museum->address }}</p>
           <p class="card-text"><span>投稿者</span>{{ $museum->user->name }}</p>
-        <p class="card-text"><span>カテゴリ</span>{{ $museum->category->name }}</p>
         <a href={{ route('museum.detail', ['id' => $museum->id]) }} class="btn btn-primary">詳細を見る</a>
       </div>
       </div><!-- /.col-sm-6 -->
@@ -99,7 +98,6 @@
         <span>住所</span><br>
           {{ $museum->address }}</p>
           <p class="card-text"><span>投稿者</span>{{ $museum->user->name }}</p>
-        <p class="card-text"><span>カテゴリ</span>{{ $museum->category->name }}</p>
         <a href={{ route('museum.detail', ['id' => $museum->id]) }} class="btn btn-outline-dark">詳細を見る</a>
       </div>
       </div><!-- /.col-sm-6 -->
@@ -107,4 +105,5 @@
     @endif
     @endforeach
 </div><!-- /.row -->
+</div><!-- /#index -->
 @endsection

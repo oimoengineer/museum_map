@@ -64,16 +64,16 @@ class MuseumController extends Controller
         return view('setting_edit', ['users' => $users] );
     }
 
-    public function setting_update(Request $request, $id, User $users)
+    public function setting_update(Request $request)
     {
-        $users = User::find($id);
+        $users = \Auth::user();
         $users->name = request('name');
         $users->email = request('email');
-        $users->password = request('password');
+        $users->password = bcrypt($request->get('new-password'));
         $filename=$request->$file('thefile')->store('public');
         $users->user_image = str_replace('public/', '', $filename);
         $users->save();
-        return redirect()->route('user.setting', ['id' => $users->id]);
+        return redirect()->back()->with('update_password_success', 'ユーザー情報を更新しました');
 
     }
 
@@ -127,11 +127,7 @@ class MuseumController extends Controller
         }
         Storage::disk('local')->exists('public/storage/' .$museum->museum_image);
         
-
-        // likeMuseum
-        $likeMuseum = Auth::user()->likeMuseum()->pluck('museum_id');
-
-        return view('show', ['museum' => $museum, 'login_user_id' => $login_user_id], compact(['museum', 'likeMuseum']) );
+        return view('show', ['museum' => $museum, 'login_user_id' => $login_user_id] );
     }
 
     /**
