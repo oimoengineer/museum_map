@@ -13,10 +13,12 @@
   
 </head>
 <body class='main'>
-            <div class="d-flex" id="welcome">
+            <div class="container d-flex" id="welcome">
                 <div class="content">
+                    <p>おすすめの美術館をシェアしよう</p>
                     <h1>Museum Nav</h1>
-                    <p>美術館をもっと身近に</p>
+                    <a href="{{route('register')}}" class='btn btn-outline-dark mt-5'>はじめての方はこちら</a>
+                    <a href="{{route('login')}}">ログインはこちら</a>
                 </div><!-- /.content -->
                 <div class="key_visual">
                     <img src="{{asset('images/key_visual.png')}}" alt="メイン画像">
