@@ -42,8 +42,8 @@
       {{Form::text('new-password_confirmation', null, ['class' => 'form-control'])}}
     </div><!-- /.form-group -->
     <div class="form-group mb-5">
-      <p>新しいアイコン用の画像ファイルを選択してください。</p>
-      {{Form::file('thefile')}}
+      {{Form::label('user_image', 'プロフィール写真')}}
+      {{Form::file('user_image', ['class' => 'ms-4'])}}
     </div><!-- /.form-group -->
     <div class="form-group mb-4">
       {{Form::submit('更新する', ['class' => 'btn btn-primary pe-5 ps-5'])}}

@@ -7,7 +7,9 @@ use App\Category;
 use App\User;
 use Auth;
 use Storage;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MuseumController extends Controller
 {
@@ -31,7 +33,8 @@ class MuseumController extends Controller
     public function index()
     {
         $museums = Museum::all();
-        return view('index', ['museums' => $museums]);
+        $museum_paginate = DB::table('museums')->paginate(9);
+        return view('index', ['museums' => $museums, 'museum_paginate' => $museum_paginate]);
     }
 
     public function search(Request $request)
@@ -62,6 +65,24 @@ class MuseumController extends Controller
     {
         $users = \Auth::user();
         return view('setting_edit', ['users' => $users] );
+    }
+
+    public function setting_store()
+    {
+        $request->validate([
+            'user_image'=>['file', 'mimes:jpeg,png,jpg,bmb', 'max:2048'],
+        ]);
+
+        if($file = $request->user_image){
+            // 保存するファイルに名前をつける
+            $fileName = time().'.'.$file->getClientOriginalExtension();
+            // Laravel直下のpublicディレクトリに新フォルダをつくり保存する
+            $target_path = public_path('/uploads/');
+            $file->move($target_path, $user_image);
+        } 
+        $request->user()->create([
+            'user_image'=>$fileName,
+        ]);
     }
 
     public function setting_update(Request $request)
@@ -126,7 +147,7 @@ class MuseumController extends Controller
             $login_user_id = '';
         }
         Storage::disk('local')->exists('public/storage/' .$museum->museum_image);
-        
+
         return view('show', ['museum' => $museum, 'login_user_id' => $login_user_id] );
     }
 
