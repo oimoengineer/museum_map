@@ -76,3 +76,25 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+<!-- memo -->
+<nav>
+        <ul class="pagination">
+            
+                            <li class="page-item">
+                    <a class="page-link" href="http://localhost:8888/museum_map/public/museums?page=1" rel="prev" aria-label="&laquo; Previous">&lsaquo;</a>
+                </li>
+            
+            
+                            
+                
+                
+                                                                                        <li class="page-item"><a class="page-link" href="http://localhost:8888/museum_map/public/museums?page=1">1</a></li>
+                                                                                                <li class="page-item active" aria-current="page"><span class="page-link">2</span></li>
+                                                                        
+            
+                            <li class="page-item disabled" aria-disabled="true" aria-label="Next &raquo;">
+                    <span class="page-link" aria-hidden="true">&rsaquo;</span>
+                </li>
+                    </ul>
+    </nav>

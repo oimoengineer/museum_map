@@ -3,13 +3,6 @@
 @section('content')
   <h1 class='mb-4'>マイページ</h1>
   <div class="d-flex">
-    <div class='me-4'>
-    @if($users->user_image == null) 
-      <img src="{{ asset('images/user_dummy.jpeg')}}" alt="no-image">
-    @else
-      <img src="/uploads/{{ $users->user_image }}" alt="user-img" class='rounded-circle w-75'>
-    @endif
-    </div>
     <div class='flex-shrink-1'>
     <p>氏名(ニックネーム可)</p>
     <p class='border border-dark p-2 mb-4 rounded'>{{$users->name}}</p>

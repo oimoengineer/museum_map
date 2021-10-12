@@ -33,8 +33,10 @@ class MuseumController extends Controller
     public function index()
     {
         $museums = Museum::all();
-        $museum_paginate = DB::table('museums')->paginate(9);
-        return view('index', ['museums' => $museums, 'museum_paginate' => $museum_paginate]);
+        $data = Museum::paginate(9);
+
+        $img_data = Museum::all()->pluck('museum_image', 'id');
+        return view('index', ['museums' => $museums], compact('data', 'img_data'));
     }
 
     public function search(Request $request)
@@ -69,20 +71,7 @@ class MuseumController extends Controller
 
     public function setting_store()
     {
-        $request->validate([
-            'user_image'=>['file', 'mimes:jpeg,png,jpg,bmb', 'max:2048'],
-        ]);
-
-        if($file = $request->user_image){
-            // 保存するファイルに名前をつける
-            $fileName = time().'.'.$file->getClientOriginalExtension();
-            // Laravel直下のpublicディレクトリに新フォルダをつくり保存する
-            $target_path = public_path('/uploads/');
-            $file->move($target_path, $user_image);
-        } 
-        $request->user()->create([
-            'user_image'=>$fileName,
-        ]);
+        return redirect('/');
     }
 
     public function setting_update(Request $request)
@@ -91,8 +80,6 @@ class MuseumController extends Controller
         $users->name = request('name');
         $users->email = request('email');
         $users->password = bcrypt($request->get('new-password'));
-        $filename=$request->$file('thefile')->store('public');
-        $users->user_image = str_replace('public/', '', $filename);
         $users->save();
         return redirect()->back()->with('update_password_success', 'ユーザー情報を更新しました');
 
@@ -125,8 +112,6 @@ class MuseumController extends Controller
         $museum->category_id = request('category_id');
         $museum->comment = request('comment');
         $museum->user_id = $user->id;
-        $filename = $request->$file('thefile')->store('public');
-        $museum->museum_image = str_replace('public/', '', $filename);
         $museum->save();
         return redirect()->route('museum.detail', ['id' => $museum->id]);
     }
@@ -178,8 +163,6 @@ class MuseumController extends Controller
         $museum->address = request('address');
         $museum->category_id = request('category_id');
         $museum->comment = request('comment');
-        $filename=$request->$file('thefile')->store('public');
-        $museum->museum_image = str_replace('public/', '', $filename);
         $museum->save();
         return redirect()->route('museum.detail', ['id' => $museum->id]);
     }

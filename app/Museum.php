@@ -19,9 +19,7 @@ class Museum extends Model
     }
 
     protected $fillable = [
-        'museums_image',
+        'post_img'
     ];
-
-    
 
 }

@@ -3,7 +3,7 @@
 @section('content')
   <h1>新規投稿</h1>
   <p class="fs-5">おすすめの美術館を追加する</p>
-  {{Form::open(['route' => 'museum.store', 'files'=>true])}}
+  {{Form::open(['route' => 'museum.store'])}}
     <div class="form-group mb-4">
       {{ Form::label('category_id', 'カテゴリ') }}
       {{ Form::select('category_id', $categories, ['class' => 'form-select']) }}
@@ -19,10 +19,6 @@
     <div class="form-group mb-4">
       {{Form::label('comment', 'コメント(おすすめポイントなど)')}}
       {{Form::textarea('comment', null, ['class' => 'form-control'])}}
-    </div><!-- /.form-group -->
-    <div class="form-group mb-5">
-      <p>美術館の画像ファイルを選択してください。</p>
-      {{Form::file('thefile')}}
     </div><!-- /.form-group -->
     <div class="form-group mb-4">
       {{Form::submit('追加する', ['class' => 'btn btn-primary pe-5 ps-5'])}}

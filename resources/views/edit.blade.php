@@ -20,10 +20,6 @@
       {{Form::textarea('comment', null, ['class' => 'form-control'])}}
     </div><!-- /.form-group -->
     <div class="form-group mb-4">
-      <p>美術館の画像ファイルを選択してください。</p>
-      {{Form::file('thefile')}}
-    </div><!-- /.form-group -->
-    <div class="form-group mb-4">
       {{Form::submit('更新する', ['class' => 'btn btn-primary pe-5 ps-5'])}}
     </div><!-- /.form-group -->
   {{Form::close()}}

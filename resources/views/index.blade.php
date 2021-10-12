@@ -1,7 +1,6 @@
 @extends('layout')
 
 @section('content')
-<div id="index">
 <div class="position-relative">
   <form action="{{url('/search')}}" method="post" class="ms-auto p-2 bd-highlight position-absolute end-0">
       {{ csrf_field()}}
@@ -14,18 +13,24 @@
     </div><!-- /.d-flex -->
   </form>
 </div><!-- /.position-relative -->
+
   <div class="mb-4 bd-highlight">
     <h2 class='p-2 bd-highlight text-dark'>おすすめ一覧</h2>
   
   <div class="row">
     @foreach ($museums as $museum)
       <div class="col-sm-4">
-      <div class="card mb-4">
-      @if($museum->museum_image == null) 
-      <img src="{{ asset('images/no_image.jpg')}}" alt="no-image">
-      @else
-      <img src="{{ asset('/storage/'.$museum->museum_image)}}" class="card-img-top" alt="museum-img">
+      @if($museum->category_id === 1) 
+        <div style="background-color:#ffff7f; width: auto; height: 8%;">
+        </div><!-- /.color -->
+      @elseif ($museum->category_id === 2)
+      <div class="color" style="background-color:grey; width: auto; height: 8%;">
+      </div><!-- /.color -->
+      @else ($museum->category_id === 3)
+      <div class="color" style="background-color:grey; width: auto; height: 8%;">
+      </div><!-- /.color -->
       @endif
+      <div class="card mb-4">
       <div class="card-body">
         <h4 class="card-title">{{ $museum->name }}</h4>
         <p class="card-text">
@@ -37,8 +42,7 @@
       </div><!-- /.col-sm-6 -->
     </div>
     @endforeach
+    {{ $data->links() }}
 </div><!-- /.row -->
-    {{ $museum_paginate->links() }}
 </div><!-- /.row -->
-</div><!-- /#index -->
 @endsection
