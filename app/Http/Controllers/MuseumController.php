@@ -32,11 +32,9 @@ class MuseumController extends Controller
      */
     public function index()
     {
-        $museums = Museum::all();
-        $data = Museum::paginate(9);
+        $museums = \App\Museum::orderBy('created_at', 'desc')->paginate(9);
 
-        $img_data = Museum::all()->pluck('museum_image', 'id');
-        return view('index', ['museums' => $museums], compact('data', 'img_data'));
+        return view('index', ['museums' => $museums]);
     }
 
     public function search(Request $request)

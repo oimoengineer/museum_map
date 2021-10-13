@@ -19,30 +19,24 @@
   
   <div class="row">
     @foreach ($museums as $museum)
-      <div class="col-sm-4">
-      @if($museum->category_id === 1) 
-        <div style="background-color:#ffff7f; width: auto; height: 8%;">
-        </div><!-- /.color -->
-      @elseif ($museum->category_id === 2)
-      <div class="color" style="background-color:grey; width: auto; height: 8%;">
-      </div><!-- /.color -->
-      @else ($museum->category_id === 3)
-      <div class="color" style="background-color:grey; width: auto; height: 8%;">
-      </div><!-- /.color -->
-      @endif
+    <div class="col-sm-4">
       <div class="card mb-4">
-      <div class="card-body">
-        <h4 class="card-title">{{ $museum->name }}</h4>
-        <p class="card-text">
+        <div class="card-body" style="text-align: center;">
+      @if ($museum->category_id === 1)
+        <img src="{{ asset('images/show_background.png')}}" alt="" style="width:150px; padding-right:auto;">
+      @endif
+        <h4 class="card-title" style="text-align: left;">{{ $museum->name }}</h4>
+        <p class="card-text" style="text-align: left;">
           <span>住所</span><br>
           {{ $museum->address }}</p>
-          <p class="card-text"><span>投稿者</span>{{ $museum->user->name }}</p>
-        <a href={{ route('museum.detail', ['id' => $museum->id]) }} class="">詳細を見る</a>
+          <p class="card-text" style="text-align: left;"><span>投稿者</span>{{ $museum->user->name }}</p>
+        <a href={{ route('museum.detail', ['id' => $museum->id]) }} style="text-align: right;">詳細を見る</a>
       </div>
       </div><!-- /.col-sm-6 -->
     </div>
     @endforeach
-    {{ $data->links() }}
+
+    {{ $museums->links() }}
 </div><!-- /.row -->
 </div><!-- /.row -->
 @endsection
