@@ -46,6 +46,6 @@
     </div><!-- /.form-group -->
   {{Form::close()}}
   <div class="mt-4 mb-5">
-    <a href={{route('user.setting')}}>マイページに戻る</a>
+    <a href={{route('user.setting')}} class='tag2 ms-3'>マイページに戻る</a>
   </div>
 @endsection

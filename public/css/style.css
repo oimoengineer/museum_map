@@ -1,5 +1,4 @@
 /* common */
-
 body {
   padding: 0 auto;
   padding-top: 100px;
@@ -33,6 +32,31 @@ body .tag:hover::after{
   width: 30%;
 }
 
+/* aタグ2 */
+.tag2 {
+  color: #316ab5;
+  font-size: 1.1rem;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: .3s;
+}
+
+.tag2::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: #316ab5;
+  transition: .3s;
+  transform: translateX(-50%);
+}
+
+.tag2:hover::after {
+  width: 100%;
+}
 
 body .common-nav a {
   color: #59493b;
@@ -48,6 +72,17 @@ body .container {
   height: auto;
   margin: 0 auto;
 }
+@media screen and (max-width: 720px) {
+  body .container {
+    width: 84%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  body {
+    padding-top: 80px;
+  }
+}
 
 /* welcome */
 .main {
@@ -55,8 +90,7 @@ body .container {
   padding-top: 0;
 }
 
-
-/* content */
+/* welcome content */
 .content {
   margin-left: 100px;
   color: #59493b;
@@ -86,10 +120,16 @@ body .container {
   margin-left: 80px;
 }
 
+/* welcome SP */
+@media screen and (max-width:720px) {
+
+}
+
+
+
 /* show.blade.php */
-.comment img{
-  width: 64px;
-  height: 64px;
+.show {
+  background-image: url(/public/images/show_background.png);
 }
 
 /* map */
@@ -154,9 +194,7 @@ body .container {
 }
 
 /* index.blade.php */
-.card-body
-{
-}
+
 
 /* tag */
 .card-body span {
@@ -169,4 +207,8 @@ body .container {
   margin-right: 2%;
 }
 
+/* #login */
+#login .tag2 {
+  font-size: 1rem;
+}
 

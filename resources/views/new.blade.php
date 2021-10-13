@@ -3,12 +3,6 @@
 @section('content')
   <h1>新規投稿</h1>
   <p class="fs-5">おすすめの美術館を追加する</p>
-  
-
-  
-
-  
-
   {{Form::open(['route' => 'museum.store'])}}
     <div class="form-group mb-4">
       {{ Form::label('category_id', 'カテゴリ') }}
@@ -39,12 +33,12 @@
       {{Form::label('comment', 'コメント(おすすめポイントなど)')}}
       {{Form::textarea('comment', old('comment'), ['class' => 'form-control'])}}
     </div><!-- /.form-group -->
-    <div class="form-group mb-4">
+    <div class="form-group mb-3">
       {{Form::submit('追加する', ['class' => 'btn btn-outline-dark pe-5 ps-5'])}}
     </div><!-- /.form-group -->
   {{Form::close()}}
 
-  <div class="mt-4 mb-5">
-    <a href={{route('museum.list')}}>一覧に戻る</a>
+  <div class="mb-4">
+    <a href={{route('museum.list')}} class='tag2 ms-4'>一覧に戻る</a>
   </div>
 @endsection

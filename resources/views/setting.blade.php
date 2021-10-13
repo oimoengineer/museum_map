@@ -1,23 +1,22 @@
 @extends('layout')
 
 @section('content')
+<div class="card">
+  <div class="card-body">
   <h1 class='mb-4'>マイページ</h1>
-  <div class="d-flex">
-    <div class='flex-shrink-1'>
+  <div>
     <p>氏名(ニックネーム可)</p>
     <p class='border border-dark p-2 mb-4 rounded'>{{$users->name}}</p>
     <p>メールアドレス</p>
     <p class='border border-dark p-2 mb-4 rounded'>{{$users->email}}</p>
-    </div>
-  </div><!-- /.d-flex -->
-  <div class="like-list">
-    <h3>いいね一覧</h3>
-  </div><!-- /.like -->
-  <class="mt-4 mb-5 d-flex">
-    <a href={{route('museum.list')}}>一覧に戻る</a>
-    <a href={{route('user.edit')}}>編集する</a>
+  </div>
+  <div class="mt-4 d-flex justify-content-between">
+    <p><a href={{route('museum.list')}} class='tag2'>一覧に戻る</a> |
+    <a href={{route('user.edit')}} class='tag2'>編集</a></p>
     {{ Form::open(['method' => 'delete', 'route' => ['user.destroy']]) }}
-        {{ Form::submit('削除', ['class' => 'btn btn-danger']) }}
+        {{ Form::submit('削除', ['class' => 'btn btn-outline-danger']) }}
     {{ Form::close() }}
   </div>
+  </div><!-- /.card-body -->
+  </div><!-- /.card -->
 @endsection
