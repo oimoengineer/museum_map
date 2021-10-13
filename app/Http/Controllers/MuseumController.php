@@ -8,6 +8,7 @@ use App\User;
 use Auth;
 use Storage;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreMuseumPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -100,7 +101,7 @@ class MuseumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreMuseumPost $request)
     {
         $museum = new Museum;
         $user = \Auth::user();
@@ -112,6 +113,7 @@ class MuseumController extends Controller
         $museum->comment = request('comment');
         $museum->user_id = $user->id;
         $museum->save();
+
         return redirect()->route('museum.detail', ['id' => $museum->id]);
     }
 
@@ -155,7 +157,7 @@ class MuseumController extends Controller
      * @param  \App\Museum  $museum
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Museum $museum, $id)
+    public function update(StoreMuseumPost $request, Museum $museum, $id)
     {
         $museum = Museum::find($id);
         $museum->name = request('name');
