@@ -14,7 +14,7 @@
     <h3>いいね一覧</h3>
   </div><!-- /.like -->
   <div class="mt-4 mb-5">
-    <a href={{route('user.edit')}}>編集する</a>
     <a href={{route('museum.list')}}>一覧に戻る</a>
+    <a href={{route('user.edit')}}>編集する</a>
   </div>
 @endsection

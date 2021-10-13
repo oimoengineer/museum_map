@@ -86,9 +86,6 @@ body .container {
   margin-left: 80px;
 }
 
-
-
-
 /* show.blade.php */
 .comment img{
   width: 64px;
@@ -98,9 +95,8 @@ body .container {
 /* map */
 #map {
   width: 100%;
-  height: 280px;
+  height: 320px;
 }
-
 
 /* コメント吹き出し */
 .balloon {
@@ -143,26 +139,21 @@ body .container {
   padding: 2%;
 }
 
-.museum_img {
-  height: 50%;
-}
-
-.museum_img img {
-  max-width: 90%;
-  height: 90%;
-  margin-right: 5%;
-}
-
+/* show main */
 .show_box{
-  width: 50%;
   height: auto;
-  border: double 7px #e5c542;
-  padding: 2%;
+  font-size: 1.1rem;
+}
+
+.show_box img{
+  width: 200px;
+  height: auto;
+  opacity: 0.5;
+  margin-right: 50px;
+  transform: rotate(20deg);
 }
 
 /* index.blade.php */
-
-
 .card-body
 {
 }

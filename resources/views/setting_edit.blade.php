@@ -37,16 +37,12 @@
       {{Form::label('password', '新しいパスワード')}}
       {{Form::text('new-password', null, ['class' => 'form-control'])}}
     </div><!-- /.form-group -->
-    <div class="form-group mb-4">
+    <div class="form-group mb-5">
       {{Form::label('password', '新しいパスワード（確認）')}}
       {{Form::text('new-password_confirmation', null, ['class' => 'form-control'])}}
     </div><!-- /.form-group -->
-    <div class="form-group mb-5">
-      {{Form::label('user_image', 'プロフィール写真')}}
-      {{Form::file('user_image', ['class' => 'ms-4'])}}
-    </div><!-- /.form-group -->
     <div class="form-group mb-4">
-      {{Form::submit('更新する', ['class' => 'btn btn-primary pe-5 ps-5'])}}
+      {{Form::submit('更新する', ['class' => 'btn btn-outline-dark pe-5 ps-5'])}}
     </div><!-- /.form-group -->
   {{Form::close()}}
   <div class="mt-4 mb-5">
