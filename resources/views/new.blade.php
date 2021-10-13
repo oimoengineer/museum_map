@@ -21,7 +21,7 @@
       {{Form::textarea('comment', null, ['class' => 'form-control'])}}
     </div><!-- /.form-group -->
     <div class="form-group mb-4">
-      {{Form::submit('追加する', ['class' => 'btn btn-primary pe-5 ps-5'])}}
+      {{Form::submit('追加する', ['class' => 'btn btn-outline-dark pe-5 ps-5'])}}
     </div><!-- /.form-group -->
   {{Form::close()}}
 

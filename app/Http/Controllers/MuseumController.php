@@ -176,14 +176,16 @@ class MuseumController extends Controller
         $museum = Museum::find($id);
         $museum->delete();
         return redirect('/museums');
+
     }
 
-    // likeMuseums
-    public function like(MuseumSearchService $museumSearchService, Request $request)
+    public function user_destroy()
     {
-        
+        $user = Auth::user();
+
+        Auth::logout();
+        $user->delete();
+        return redirect("/welcome");
     }
-
-
 
 }

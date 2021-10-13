@@ -13,8 +13,11 @@
   <div class="like-list">
     <h3>いいね一覧</h3>
   </div><!-- /.like -->
-  <div class="mt-4 mb-5">
+  <class="mt-4 mb-5 d-flex">
     <a href={{route('museum.list')}}>一覧に戻る</a>
     <a href={{route('user.edit')}}>編集する</a>
+    {{ Form::open(['method' => 'delete', 'route' => ['user.destroy']]) }}
+        {{ Form::submit('削除', ['class' => 'btn btn-danger']) }}
+    {{ Form::close() }}
   </div>
 @endsection

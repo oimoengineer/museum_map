@@ -30,7 +30,7 @@ body .tag::after {
 }
 
 body .tag:hover::after{
-  width: 180px;
+  width: 30%;
 }
 
 
@@ -58,7 +58,7 @@ body .container {
 
 /* content */
 .content {
-  margin-left: 4%;
+  margin-left: 100px;
   color: #59493b;
   text-align: center;
 }
