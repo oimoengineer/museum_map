@@ -3,17 +3,6 @@
 @section('content')
   <h1 class='mb-4'>ユーザー情報編集</h1>
 
-  <!-- エラーメッセージ -->
-  @if(count($errors) > 0)
-    <div class="container">
-      <div class="alert alert-danger">
-        @foreach($errors->all() as $error)
-          <li>{{ $error }}</li>
-        @endforeach
-      </div><!-- /.alert -->
-    </div><!-- /.container -->
-    @endif
-
     <!-- 更新成功メッセージ -->
     @if (session('update_password_success'))
     <div class="container">
@@ -24,18 +13,30 @@
     @endif
   
   {{Form::open(['route' => 'user.update', 'files'=>true, $users->id])}}
+  @error('name')
+    <p class='alert alert-warning'>{{ $message }}</p>
+  @enderror 
     <div class="form-group mb-4">
       {{ Form::label('name', '名前') }}
       {{ Form::text('name', $users->name, ['class' => 'form-control']) }}
     </div><!-- /.form-group -->
+  @error('email')
+    <p class='alert alert-warning'>{{ $message }}</p>
+  @enderror
     <div class="form-group mb-4">
       {{Form::label('email', 'メールアドレス')}}
       {{Form::text('email', $users->email, ['class' => 'form-control'])}}
     </div><!-- /.form-group -->
+  @error('new-password')
+    <p class='alert alert-warning'>{{ $message }}</p>
+  @enderror
     <div class="form-group mb-4">
       {{Form::label('password', '新しいパスワード')}}
       {{Form::text('new-password', null, ['class' => 'form-control'])}}
     </div><!-- /.form-group -->
+    @error('new-password_confirmation')
+    <p class='alert alert-warning'>{{ $message }}</p>
+    @enderror
     <div class="form-group mb-5">
       {{Form::label('password', '新しいパスワード（確認）')}}
       {{Form::text('new-password_confirmation', null, ['class' => 'form-control'])}}

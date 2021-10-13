@@ -9,7 +9,7 @@ class CustomPasswordValidation implements Rule
     //最小文字数
     private const MIN_CHARACTER = 8;
     //最大文字数
-    private const MAX_CHARACTER = null;
+    private const MAX_CHARACTER = 16;
     //1文字以上の半角英字（大文字）
     private const INCLUDE_LESS_THAN_ONE_UPPER_LETTER = true;
     //1文字以上の半角英字（小文字）

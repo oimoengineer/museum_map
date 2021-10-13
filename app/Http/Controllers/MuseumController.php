@@ -6,7 +6,7 @@ use App\Museum;
 use App\Category;
 use App\User;
 use Auth;
-use Storage;
+use App\Http\Requests\StoreUserEdit;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMuseumPost;
 use Illuminate\Http\Request;
@@ -73,7 +73,7 @@ class MuseumController extends Controller
         return redirect('/');
     }
 
-    public function setting_update(Request $request)
+    public function setting_update(StoreUserEdit $request)
     {
         $users = \Auth::user();
         $users->name = request('name');
@@ -81,7 +81,6 @@ class MuseumController extends Controller
         $users->password = bcrypt($request->get('new-password'));
         $users->save();
         return redirect()->back()->with('update_password_success', 'ユーザー情報を更新しました');
-
     }
 
     /**

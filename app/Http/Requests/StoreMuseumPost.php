@@ -26,7 +26,7 @@ class StoreMuseumPost extends FormRequest
         return [
             'name' => 'required|max:255', 
             'address' => 'required', 
-            'museum_url' => 'present', 
+            'museum_url' => 'present|url', 
             'comment' => 'required', 
         ];
     }
