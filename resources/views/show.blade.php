@@ -14,7 +14,7 @@
           <p><span class='fw-bold'>カテゴリ</span><br>
             {{$museum->category->name}}</p>
           <p class="mt-1"><span class='fw-bold'>URL</span>
-          <br>{{$museum->address}}</p>
+          <br><a href="{{$museum->museum_url}}">{{$museum->museum_url}}</a></p>
           <p class="mt-1"><span class='fw-bold'>住所</span>
           <br>{{$museum->address}}</p>
         </div>

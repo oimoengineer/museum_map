@@ -107,6 +107,7 @@ class MuseumController extends Controller
 
         $museum->name = request('name');
         $museum->address = request('address');
+        $museum->museum_url = request('museum_url');
         $museum->category_id = request('category_id');
         $museum->comment = request('comment');
         $museum->user_id = $user->id;
@@ -129,7 +130,7 @@ class MuseumController extends Controller
         } else {
             $login_user_id = '';
         }
-        Storage::disk('local')->exists('public/storage/' .$museum->museum_image);
+        // Storage::disk('local')->exists('public/storage/' .$museum->museum_image);
 
         return view('show', ['museum' => $museum, 'login_user_id' => $login_user_id] );
     }
@@ -159,6 +160,7 @@ class MuseumController extends Controller
         $museum = Museum::find($id);
         $museum->name = request('name');
         $museum->address = request('address');
+        $museum->museum_url = request('museum_url');
         $museum->category_id = request('category_id');
         $museum->comment = request('comment');
         $museum->save();

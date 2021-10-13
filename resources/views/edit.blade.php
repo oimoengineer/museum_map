@@ -16,11 +16,15 @@
       {{Form::text('address', null, ['class' => 'form-control'])}}
     </div><!-- /.form-group -->
     <div class="form-group mb-4">
+      {{Form::label('museum_url', 'URL')}}
+      {{Form::text('museum_url', null, ['class' => 'form-control'])}}
+    </div><!-- /.form-group -->
+    <div class="form-group mb-4">
       {{Form::label('comment', 'コメント(おすすめポイントなど)')}}
       {{Form::textarea('comment', null, ['class' => 'form-control'])}}
     </div><!-- /.form-group -->
     <div class="form-group mb-4">
-      {{Form::submit('更新する', ['class' => 'btn btn-primary pe-5 ps-5'])}}
+      {{Form::submit('更新する', ['class' => 'btn btn-outline-dark pe-5 ps-5'])}}
     </div><!-- /.form-group -->
   {{Form::close()}}
 
