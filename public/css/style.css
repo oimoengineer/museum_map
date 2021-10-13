@@ -7,9 +7,32 @@ body {
   color: #59493b;
 }
 
-body a {
-  color: #316ab5;
+/* aタグ */
+body .tag {
+  color: #282929;
+  font-size: 1rem;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: .3s;
 }
+
+body .tag::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: #282929;
+  transition: .3s;
+  transform: translateX(-50%);
+}
+
+body .tag:hover::after{
+  width: 180px;
+}
+
 
 body .common-nav a {
   color: #59493b;
@@ -19,10 +42,6 @@ body h1 {
   color: #282929;
 }
 
-/* 保留 */
-.body .btn {
-  border-color: #59493b;
-}
 
 body .container {
   width: 75%;
@@ -45,7 +64,7 @@ body .container {
 }
 
 .content p {
-  margin-top: 200px;
+  margin-top: 180px;
   margin-bottom: 0;
   font-weight: bold;
   font-size: 1.2rem;
@@ -55,28 +74,16 @@ body .container {
   font-size: 5rem;
   color: #59493b;
   line-height: 1;
+  margin-bottom: 50px;
 }
 
-
-/* content 保留 */
-.smooth {
-  clip-path: inset(0 100% 0 0);
-  display: inline-block;
-  font-size: 2rem;
-  font-weight: bold;
-  transition: 1.4s cubic-bezier(0.37, 0, 0.63, 1);
-  transition-property: clip-path;
-  line-height: 1;
-  height: 40px;
-  margin-top: 15px;
-}
-.smooth.is-animated {
-  clip-path: inset(0);
+.content .btn {
+  margin: 0 auto;
 }
 
-
-.key_visual {
+.key_visual img{
   margin-top: 100px;
+  margin-left: 80px;
 }
 
 

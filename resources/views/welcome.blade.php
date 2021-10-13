@@ -17,8 +17,10 @@
                 <div class="content">
                     <p>おすすめの美術館をシェアしよう</p>
                     <h1>Museum Nav</h1>
-                    <a href="{{route('register')}}" class='btn btn-outline-dark mt-5'>はじめての方はこちら</a>
-                    <a href="{{route('login')}}">ログインはこちら</a>
+                    <div class="d-flex flex-column text-center">
+                    <a href="{{route('register')}}" class='btn btn-outline-dark mb-3' style="width:180px;">はじめての方はこちら</a>
+                    <a href="{{route('login')}}" class='tag'>ログインはこちら</a>
+                    </div><!-- /.d-flex -->
                 </div><!-- /.content -->
                 <div class="key_visual">
                     <img src="{{asset('images/key_visual.png')}}" alt="メイン画像">
