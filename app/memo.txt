@@ -7,7 +7,7 @@ index.blade.php
       {{method_field('get')}}
       <div class="d-flex">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="美術館・博物館・ギャラリー名を入力" name="name">
+        <input type="text" class="form-control" placeholder="施設名を入力" name="name">
       </div>
       <button type="submit" class='btn btn-dark ms-3 align-self-end'>検索</button>
     </div><!-- /.d-flex -->

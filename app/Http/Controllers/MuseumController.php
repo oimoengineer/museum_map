@@ -131,7 +131,6 @@ class MuseumController extends Controller
         } else {
             $login_user_id = '';
         }
-        // Storage::disk('local')->exists('public/storage/' .$museum->museum_image);
 
         return view('show', ['museum' => $museum, 'login_user_id' => $login_user_id] );
     }

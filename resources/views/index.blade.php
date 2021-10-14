@@ -7,7 +7,7 @@
       {{method_field('get')}}
       <div class="d-flex">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="美術館・博物館・ギャラリー名を入力" name="name">
+        <input type="text" class="form-control" placeholder="施設名を入力" name="name">
       </div>
       <button type="submit" class='btn btn-dark ms-3 align-self-end'>検索</button>
     </div><!-- /.d-flex -->
@@ -16,7 +16,7 @@
 
   <div class="mb-4 bd-highlight">
     <h2 class='p-2 bd-highlight text-dark'>おすすめ一覧</h2>
-    <div class="row">
+<div class="row">
 @foreach ($museums as $museum)
 <div class="col-sm-4">
 <div class="card mb-4">
