@@ -49988,66 +49988,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/museum.js":
-/*!********************************!*\
-  !*** ./resources/js/museum.js ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-$('.museum-search-form .search-icon').on('click', function () {
-  $('.card').empty(); //もともとある要素を空にする
-
-  $('.search-null').remove(); //検索結果が0のときのテキストを消す
-
-  var museumName = $('#search_name').val(); //検索ワードを取得
-
-  if (!museumName) {
-    return false;
-  } //ガード節で検索ワードが空の時、ここで処理を止めて何もビューに出さない
-
-
-  $.ajax({
-    type: 'GET',
-    url: '/museums/' + museumName,
-    //後述するweb.phpのURLと同じ形にする
-    data: {
-      'search_name': museumName //ここはサーバーに贈りたい情報。今回は検索ファームのバリューを送りたい。
-
-    },
-    dataType: 'json',
-    //json形式で受け取る
-    beforeSend: function beforeSend() {
-      $('.loading').removeClass('display-none');
-    } //通信中の処理をここで記載。今回はぐるぐるさせるためにcssでスタイルを消す。
-
-  }).done(function (data) {
-    $('.loading').addClass('display-none'); //通信中のぐるぐるを消す
-
-    var html = '';
-    $.each(data, function (index, value) {
-      //dataの中身からvalueを取り出す
-      //ここの記述はリファクタ可能
-      var id = value.id;
-      var name = value.name;
-      var avatar = value.avatar; // １ユーザー情報のビューテンプレートを作成
-
-      html = "<div class=\"row\">\n@foreach ($museums as $museum)\n<div class=\"col-sm-4\">\n<div class=\"card mb-4\">\n  <div class=\"card-body\" style=\"text-align: center;\">\n@if ($museum->category_id === 1)\n  <img src=\"{{ asset('images/show_background.png')}}\" alt=\"\" style=\"width:150px;\">\n@endif\n  <h4 class=\"card-title\" style=\"text-align: left;\">{{ $museum->name }}</h4>\n  <p class=\"card-text\" style=\"text-align: left;\">\n    <span>\u4F4F\u6240</span><br>\n    {{ $museum->address }}</p>\n    @if(empty($museum->user->name))\n    <p class=\"card-text\" style=\"text-align: left;\"><span>\u6295\u7A3F\u8005</span>\u9000\u4F1A\u3057\u305F\u30E6\u30FC\u30B6\u30FC</p>\n    @else\n    <p class=\"card-text\" style=\"text-align: left;\"><span>\u6295\u7A3F\u8005</span>{{ $museum->user->name }}</p>\n    @endif\n  <a href={{ route('museum.detail', ['id' => $museum->id]) }} style=\"text-align: right;\">\u8A73\u7D30\u3092\u898B\u308B</a>\n</div>\n</div><!-- /.col-sm-6 -->\n</div>\n@endforeach\n";
-    });
-    $('.card').append(html); //できあがったテンプレートをビューに追加
-    // 検索結果がなかったときの処理
-
-    if (data.length === 0) {
-      $('.museum-index-wrapper').after('<p class="text-center mt-5 search-null">検索結果が見つかりません</p>');
-    }
-  }).fail(function () {
-    //ajax通信がエラーのときの処理
-    console.log('どんまい！');
-  });
-});
-
-/***/ }),
-
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -50060,14 +50000,13 @@ $('.museum-search-form .search-icon').on('click', function () {
 /***/ }),
 
 /***/ 0:
-/*!**************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/js/museum.js ./resources/sass/app.scss ***!
-  \**************************************************************************************/
+/*!*************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\mamp\htdocs\museum_map\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\mamp\htdocs\museum_map\resources\js\museum.js */"./resources/js/museum.js");
 module.exports = __webpack_require__(/*! C:\mamp\htdocs\museum_map\resources\sass\app.scss */"./resources/sass/app.scss");
 
 

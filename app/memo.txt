@@ -1,0 +1,37 @@
+検索フォーム（元のやつ）
+index.blade.php
+@section以下から
+<div class="position-relative">
+  <form action="{{url('/search')}}" method="post" class="ms-auto p-2 bd-highlight position-absolute end-0">
+      {{ csrf_field()}}
+      {{method_field('get')}}
+      <div class="d-flex">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="美術館・博物館・ギャラリー名を入力" name="name">
+      </div>
+      <button type="submit" class='btn btn-dark ms-3 align-self-end'>検索</button>
+    </div><!-- /.d-flex -->
+  </form>
+</div><!-- /.position-relative -->
+
+web.php
+Route::get('/search', 'MuseumController@search');
+
+MuseumController
+public function search(Request $request)
+    {
+        $keyword_name = $request->name;
+
+        if(!empty($keyword_name)) {
+            $query = Museum::query();
+            $museums = $query->where('name','like', '%' .$keyword_name. '%')->get();
+            $message = "「". $keyword_name."」を含む施設の検索が完了しました。";
+            return view('/search')->with([
+            'museums' => $museums,
+            'message' => $message,
+        ]);
+        } else {
+            $message = '検索結果はありません。';
+            return view('/search')->with('message', $message);
+        }
+    }
