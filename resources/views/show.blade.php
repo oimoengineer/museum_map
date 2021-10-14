@@ -2,7 +2,16 @@
 
 @section('content')
 <section class="show">
-  <h1 class="mb-4">{{$museum->name}}</h1>
+  <div class="d-flex">
+  <h1 class="align-self-center me-2">{{$museum->name}}</h1>
+  @if ($museum->category_id === 1)
+  <img src="{{ asset('images/M_image.png')}}" alt="" style="width:8%; height:8%;" class='category_img'>
+  @elseif ($museum->category_id === 2)
+    <img src="{{ asset('images/H_image.png')}}" alt="" style="width:8%; height:8%;">
+  @else
+  <img src="{{ asset('images/G_image.png')}}" alt="" style="width:8%; height:8%;">
+  @endif
+  </div><!-- /.d-flex -->
   <div class="row">
     <div class="show_box mt-4">
     <div class="show_content"> 
@@ -10,8 +19,13 @@
         <div>
           <p><span class='fw-bold'>カテゴリ</span><br>
             {{$museum->category->name}}</p>
+          @if ($museum->museum_url == null)
+          <p class="mt-1"><span class='fw-bold'>URL</span>
+          <br>登録されていません</p>
+          @else
           <p class="mt-1"><span class='fw-bold'>URL</span>
           <br><a href="{{$museum->museum_url}}">{{$museum->museum_url}}</a></p>
+          @endif
           <p class="mt-1"><span class='fw-bold'>住所</span>
           <br>{{$museum->address}}</p>
         </div>
@@ -24,14 +38,14 @@
     </div><!-- /.show_content -->
   </div><!-- /.row -->
   
-  <div class="d-flex comment mt-3">
-    <img src="{{asset('/images/user_dummy.jpeg')}}" alt="user_img" class='me-4 ms-2 mt-2'>
-    <div class="balloon">
+  <div class="d-flex comment mt-4">
+    <img src="{{asset('/images/user_image.png')}}" alt="user_img" style="width: 80px; height:70px;" class='me-2'>
+    <div class="border border-1 rounded border-dark p-3 mb-4" style="width: 100%;">
       <p>{{$museum->comment}}</p>
     </div><!-- /.balloon -->
   </div><!-- /.comment -->
   <div class="d-flex justify-content-between">
-    <p class="me-2 mt-2 fs-5">
+    <p class="me-2 fs-5">
     <a href={{route('museum.list')}} class='tag2 mb-4'>一覧に戻る</a>
     @auth
       @if($museum->user_id === $login_user_id)
