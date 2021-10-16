@@ -15,7 +15,7 @@
 <body>
 <nav class="common-nav bg-light navbar navbar-expand-md shadow-sm fixed-top">
             <div class="container">
-                <a class="navbar-brand fs-3" href="{{ url('/') }}">
+                <a class="navbar-brand fs-3" href="{{ url('/museums') }}">
                     {{ config('APP_NAME', 'Museum Nav') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

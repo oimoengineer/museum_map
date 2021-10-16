@@ -28,7 +28,7 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
 Route::get('/', function () {
-    return redirect('/museums');
+    return redirect('/welcome');
 });
 
 
