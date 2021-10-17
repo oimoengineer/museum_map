@@ -15,6 +15,7 @@
 <body class='main'>
             <div class="container d-flex" id="welcome">
                 <div class="content">
+                    <p>hello world</p>
                     <p>おすすめの美術館をシェアしよう</p>
                     <h1>Museum Nav</h1>
                     <div class="d-flex flex-column text-center">
