@@ -2,21 +2,14 @@
 
 @section('content')
 <section class="show">
-  <div class="d-flex">
-  <h1 class="align-self-center me-2">{{$museum->name}}</h1>
-  @if ($museum->category_id === 1)
-  <img src="{{ asset('images/M_image.png')}}" alt="" style="width:8%; height:8%;" class='category_img'>
-  @elseif ($museum->category_id === 2)
-    <img src="{{ asset('images/H_image.png')}}" alt="" style="width:8%; height:8%;">
+  <h1 class="align-self-center me-2 mb-4">{{$museum->name}}</h1>
+  <div class="show_flex">
+  @if ($museum->image !== null)
+  <img src="{{asset('storage/'.$museum->image)}}" alt="美術館・博物館・ギャラリーの写真" ">
   @else
-  <img src="{{ asset('images/G_image.png')}}" alt="" style="width:8%; height:8%;">
+    <img src="{{ asset('storage/image/no_image.jpg')}}" alt="no image" ">
   @endif
-  </div><!-- /.d-flex -->
-  <div class="row">
-    <div class="show_box mt-4">
-    <div class="show_content"> 
-      <div class="mb-4">
-        <div>
+  <div class="show_info">
           <p><span class='fw-bold'>カテゴリ</span><br>
             {{$museum->category->name}}</p>
           @if ($museum->museum_url == null)
@@ -29,14 +22,19 @@
           <p class="mt-1"><span class='fw-bold'>住所</span>
           <br>{{$museum->address}}</p>
         </div>
+</div>
+  <div class="row">
+    <div class="show_box mt-4">
+    <div class="show_content"> 
+      <div class="mb-4">
+        
       </div>
       <div id='map'></div>
         <script src="{{ asset('/js/result.js')}}"></script>
         <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JPkey=AIzaSyBIceH7-qsqc89r2ebp7754w9Ip1QeLyPM&callback=initMap" async defer></script>
-        
+      </div><!-- /.row -->
       </div>
     </div><!-- /.show_content -->
-  </div><!-- /.row -->
   
   <div class="d-flex comment mt-4">
     <img src="{{asset('/images/user_image.png')}}" alt="user_img" style="width: 80px; height:70px;" class='me-2'>

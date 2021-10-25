@@ -19,17 +19,13 @@
 @foreach ($museums as $museum)
 <div class="col-sm-4">
 <div class="card mb-4">
-  <div class="card-body">
-    <div class="d-flex justify-content-between mb-2">
-  <h4 class="card-title align-self-center">{{ $museum->name }}</h4>
-@if ($museum->category_id === 1)
-  <img src="{{ asset('images/M_image.png')}}" alt="" style="width:20%; height:20%;">
-@elseif ($museum->category_id === 2)
-  <img src="{{ asset('images/H_image.png')}}" alt="" style="width:18%; height:18%;">
-@else
-<img src="{{ asset('images/G_image.png')}}" alt="" style="width:20%; height:20%;">
+<div class="card-body">
+@if ($museum->image !== null && $museum->image !== "")
+  <img src="{{asset('storage/'.$museum->image)}}" alt="美術館・博物館・ギャラリーの写真" style="width: 100%; max-height: 199.51px;" ">
+@else 
+  <img src="{{asset('storage/image/no_image.jpg')}}" alt="no image" style="width: 100%;">
 @endif
-</div><!-- /.d-flex -->  
+<h4 class="card-title align-self-center mb-3 mt-3">{{ $museum->name }}</h4>
   <p class="card-text" style="text-align: left;">
     <span>住所</span><br>
     {{ $museum->address }}</p>

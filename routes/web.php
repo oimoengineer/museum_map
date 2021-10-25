@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MuseumController;
+
 Route::get('/welcome', 'MuseumController@welcome')->name('museum.welcome');
 
 Route::get('/museums', 'MuseumController@index')->name('museum.list');

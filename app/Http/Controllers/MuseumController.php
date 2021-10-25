@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+// namespace Illuminate\Contracts\Filesystem\Filesystem;
 
 use App\Museum;
 use App\Category;
@@ -31,7 +32,7 @@ class MuseumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() 
     {
         $museums = \App\Museum::orderBy('created_at', 'desc')->paginate(9);
 
@@ -100,16 +101,17 @@ class MuseumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMuseumPost $request)
+    public function store(Request $request)
     {
         $museum = new Museum;
         $user = \Auth::user();
-
         $museum->name = request('name');
         $museum->address = request('address');
         $museum->museum_url = request('museum_url');
         $museum->category_id = request('category_id');
         $museum->comment = request('comment');
+        $filename = $request->file('thefile')->store('public');
+        $museum->image = str_replace('public/', '', $filename);
         $museum->user_id = $user->id;
         $museum->save();
 
@@ -125,6 +127,7 @@ class MuseumController extends Controller
     public function show($id, Request $request)
     {
         $museum = Museum::find($id);
+        \Storage::disk('local')->exists('public/storage/'.$museum->image);
         $user = \Auth::user();
         if ($user) {
             $login_user_id = $user->id;
@@ -163,8 +166,11 @@ class MuseumController extends Controller
         $museum->museum_url = request('museum_url');
         $museum->category_id = request('category_id');
         $museum->comment = request('comment');
+        $filename = $request->file('thefile')->store('public');
+        $museum->image = str_replace('public/', '', $filename);
         $museum->save();
         return redirect()->route('museum.detail', ['id' => $museum->id]);
+
     }
 
     /**
