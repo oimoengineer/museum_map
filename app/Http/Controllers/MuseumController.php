@@ -7,7 +7,6 @@ use App\Museum;
 use App\Category;
 use App\User;
 use Auth;
-use App\Http\Requests\StoreUserEdit;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMuseumPost;
 use Illuminate\Http\Request;
@@ -34,9 +33,10 @@ class MuseumController extends Controller
      */
     public function index() 
     {
+        $museum = new Museum;
+        \Storage::disk('local')->exists('public/storage/'.$museum->image);
         $museums = \App\Museum::orderBy('created_at', 'desc')->paginate(9);
-
-        return view('index', ['museums' => $museums]);
+        return view('index', ['museums' => $museums, 'museum' => $museum]);
     }
 
     public function search(Request $request)
@@ -57,32 +57,6 @@ class MuseumController extends Controller
         }
     }
 
-    public function setting() 
-    {
-        $users = \Auth::user();
-        return view('setting', ['users' => $users] );
-    }
-
-    public function setting_edit()
-    {
-        $users = \Auth::user();
-        return view('setting_edit', ['users' => $users] );
-    }
-
-    public function setting_store()
-    {
-        return redirect('/');
-    }
-
-    public function setting_update(StoreUserEdit $request)
-    {
-        $users = \Auth::user();
-        $users->name = request('name');
-        $users->email = request('email');
-        $users->password = bcrypt($request->get('new-password'));
-        $users->save();
-        return redirect()->back()->with('update_password_success', 'ユーザー情報を更新しました');
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -129,13 +103,14 @@ class MuseumController extends Controller
         $museum = Museum::find($id);
         \Storage::disk('local')->exists('public/storage/'.$museum->image);
         $user = \Auth::user();
+        \Storage::disk('local')->exists('public/storage/profile_images'.$user->image);
         if ($user) {
             $login_user_id = $user->id;
         } else {
             $login_user_id = '';
         }
 
-        return view('show', ['museum' => $museum, 'login_user_id' => $login_user_id] );
+        return view('show', ['museum' => $museum, 'user' => $user, 'login_user_id' => $login_user_id] );
     }
 
     /**
@@ -158,9 +133,10 @@ class MuseumController extends Controller
      * @param  \App\Museum  $museum
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreMuseumPost $request, Museum $museum, $id)
+    public function update(Request $request, Museum $museum, $id)
     {
         $museum = Museum::find($id);
+        $user = \Auth::user();
         $museum->name = request('name');
         $museum->address = request('address');
         $museum->museum_url = request('museum_url');
@@ -168,7 +144,9 @@ class MuseumController extends Controller
         $museum->comment = request('comment');
         $filename = $request->file('thefile')->store('public');
         $museum->image = str_replace('public/', '', $filename);
+        $museum->user_id = $user->id;
         $museum->save();
+
         return redirect()->route('museum.detail', ['id' => $museum->id]);
 
     }
@@ -184,16 +162,8 @@ class MuseumController extends Controller
         $museum = Museum::find($id);
         $museum->delete();
         return redirect('/museums');
-
     }
 
-    public function user_destroy()
-    {
-        $user = Auth::user();
-
-        Auth::logout();
-        $user->delete();
-        return redirect("/welcome");
-    }
+    
 
 }

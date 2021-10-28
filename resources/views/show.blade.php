@@ -4,7 +4,7 @@
 <section class="show">
   <h1 class="align-self-center me-2 mb-4">{{$museum->name}}</h1>
   <div class="show_flex">
-  @if ($museum->image !== null)
+  @if ($museum->image !== null && $museum->image !== "")
   <img src="{{asset('storage/'.$museum->image)}}" alt="美術館・博物館・ギャラリーの写真" ">
   @else
     <img src="{{ asset('storage/image/no_image.jpg')}}" alt="no image" ">
@@ -37,7 +37,11 @@
     </div><!-- /.show_content -->
   
   <div class="d-flex comment mt-4">
-    <img src="{{asset('/images/user_image.png')}}" alt="user_img" style="width: 80px; height:70px;" class='me-2'>
+      @if ($user->image !== null && $user->image !== "")
+        <img src="{{asset('storage/'.$user->image)}}" alt="アイコン画像" width="80px" height="70px" class="me-2">
+      @else
+        <img src="{{asset('storage/image/user_image.png')}}" alt="no image" width="80px" height="70px" class="me-2">
+      @endif
     <div class="border border-1 rounded border-dark p-3 mb-4" style="width: 100%;">
       <p>{{$museum->comment}}</p>
     </div><!-- /.balloon -->

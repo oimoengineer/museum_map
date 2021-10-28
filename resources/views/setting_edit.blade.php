@@ -12,20 +12,20 @@
     </div><!-- /.container -->
     @endif
   
-  {{Form::open(['route' => 'user.update', 'files'=>true, $users->id])}}
+  {{Form::open(['route' => 'user.update', 'files'=>true, $user->id])}}
   @error('name')
     <p class='alert alert-warning'>{{ $message }}</p>
   @enderror 
     <div class="form-group mb-4">
-      {{ Form::label('name', '名前') }}
-      {{ Form::text('name', $users->name, ['class' => 'form-control']) }}
+      {{ Form::label('name', '氏名(ニックネーム可)') }}
+      {{ Form::text('name', $user->name, ['class' => 'form-control']) }}
     </div><!-- /.form-group -->
   @error('email')
     <p class='alert alert-warning'>{{ $message }}</p>
   @enderror
     <div class="form-group mb-4">
       {{Form::label('email', 'メールアドレス')}}
-      {{Form::text('email', $users->email, ['class' => 'form-control'])}}
+      {{Form::text('email', $user->email, ['class' => 'form-control'])}}
     </div><!-- /.form-group -->
   @error('new-password')
     <p class='alert alert-warning'>{{ $message }}</p>
@@ -37,9 +37,13 @@
     @error('new-password_confirmation')
     <p class='alert alert-warning'>{{ $message }}</p>
     @enderror
-    <div class="form-group mb-5">
+    <div class="form-group mb-4">
       {{Form::label('password', '新しいパスワード（確認）')}}
       {{Form::text('new-password_confirmation', null, ['class' => 'form-control'])}}
+    </div><!-- /.form-group -->
+    <div class="form-group mb-5">
+      <p>アイコン画像を選択する</p>
+      {{Form::file('user_file')}}
     </div><!-- /.form-group -->
     <div class="form-group mb-4">
       {{Form::submit('更新する', ['class' => 'btn btn-outline-dark pe-5 ps-5'])}}

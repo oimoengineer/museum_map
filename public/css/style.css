@@ -62,8 +62,9 @@ body .common-nav a {
   color: #59493b;
 }
 
-body h1 {
+body h1, h2 {
   color: #282929;
+  font-size: 1.7rem;
 }
 
 
@@ -83,6 +84,8 @@ body .container {
     padding-top: 80px;
   }
 }
+
+
 
 /* welcome */
 .main {
@@ -153,8 +156,6 @@ body .container {
   }
 }
 
-
-
 /* show.blade.php */
 /* map */
 #map {
@@ -169,14 +170,21 @@ body .container {
 
 .show {
   color: #282929;
+  font-size: 1.2rem;
 }
 
 .show span {
-  border-left: solid #59493b 3px;
+  border-bottom: dashed #59493b 2px;
   color: #59493b;
-  padding-left: 3px;
-  margin-bottom: 2%;
+  font-size: 1rem;
+  display: inline-block;
+  width: 100%;
   font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+.nav-link span {
+  display: none;
 }
 
 .show_flex {
@@ -223,8 +231,6 @@ body .container {
   font-weight: bold;
   margin-bottom: 8px;
 }
-
-
 
 .pagination {
   justify-content: center;
