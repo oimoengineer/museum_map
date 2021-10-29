@@ -43,7 +43,7 @@ class UseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserEdit $request)
     {
         $user = \Auth::user();
         $user->save();

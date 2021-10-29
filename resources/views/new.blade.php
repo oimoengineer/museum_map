@@ -33,7 +33,11 @@
       {{Form::label('comment', 'コメント(おすすめポイントなど)')}}
       {{Form::textarea('comment', old('comment'), ['class' => 'form-control'])}}
     </div><!-- /.form-group -->
+    @error('thefile')
+    <p class='alert alert-warning'>{{ $message }}</p>
+    @enderror 
     <div class="form-group mb-4">
+      <p>美術館・博物館・ギャラリーの画像をアップロードしてください。</p>
       {{Form::file('thefile')}}
     </div><!-- /.form-group -->
     <div class="form-group mb-3">

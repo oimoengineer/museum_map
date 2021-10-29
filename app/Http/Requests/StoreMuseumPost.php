@@ -28,6 +28,7 @@ class StoreMuseumPost extends FormRequest
             'address' => 'required', 
             'museum_url' => 'present|url', 
             'comment' => 'required', 
+            'thefile' => 'required|file|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 
@@ -37,6 +38,7 @@ class StoreMuseumPost extends FormRequest
             'name.required' => '施設名を入力してください。',
             'address.required' => '住所を入力してください。',
             'comment.required' => 'コメントを入力してください。',
+            'thefile.required' => '画像をアップロードしてください。'
         ];
     }
 }

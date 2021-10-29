@@ -2,7 +2,6 @@
 
 @section('content')
   <h1>「{{$museum->name}}」の投稿内容を編集する</h1>
-
   {{ Form::model($museum, ['route' => ['museum.update', $museum->id], 'files' => true]) }}
     <div class="form-group mb-4 mt-4">
       {{ Form::label('category_id', 'カテゴリ') }}
@@ -33,6 +32,9 @@
       {{Form::label('comment', 'コメント(おすすめポイントなど)')}}
       {{Form::textarea('comment', old('comment'), ['class' => 'form-control'])}}
     </div><!-- /.form-group -->
+    @error('thefile')
+    <p class='alert alert-warning'>{{ $message }}</p>
+    @enderror 
     <div class="form-group mb-4">
       {{Form::file('thefile')}}
     </div><!-- /.form-group -->

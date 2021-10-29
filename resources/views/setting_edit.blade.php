@@ -41,6 +41,9 @@
       {{Form::label('password', '新しいパスワード（確認）')}}
       {{Form::text('new-password_confirmation', null, ['class' => 'form-control'])}}
     </div><!-- /.form-group -->
+    @error('user_file')
+    <p class='alert alert-warning'>{{ $message }}</p>
+    @enderror
     <div class="form-group mb-5">
       <p>アイコン画像を選択する</p>
       {{Form::file('user_file')}}

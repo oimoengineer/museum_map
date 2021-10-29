@@ -5,12 +5,9 @@ namespace App\Http\Controllers;
 
 use App\Museum;
 use App\Category;
-use App\User;
-use Auth;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreMuseumPost;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\StoreMuseumPost;
 
 class MuseumController extends Controller
 {
@@ -75,7 +72,7 @@ class MuseumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreMuseumPost $request)
     {
         $museum = new Museum;
         $user = \Auth::user();
@@ -133,7 +130,7 @@ class MuseumController extends Controller
      * @param  \App\Museum  $museum
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Museum $museum, $id)
+    public function update(StoreMuseumPost $request, Museum $museum, $id)
     {
         $museum = Museum::find($id);
         $user = \Auth::user();

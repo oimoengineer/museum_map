@@ -1,7 +1,13 @@
 @extends('layout')
 
 @section('content')
+
 <section class="show">
+@if (session('success'))
+  <div class="alert alert-success">
+    {{session('success')}}
+  </div><!-- /.alert -->
+@endif
   <h1 class="align-self-center me-2 mb-4">{{$museum->name}}</h1>
   <div class="show_flex">
   @if ($museum->image !== null && $museum->image !== "")

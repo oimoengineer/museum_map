@@ -29,6 +29,7 @@ class StoreUserEdit extends FormRequest
             'email' => 'required|email|', 
             'new-password' => ['nullable', 'confirmed',new CustomPasswordValidation], 
             'new-password_confirmation' => ['nullable', new CustomPasswordValidation], 
+            'user_file' => 'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 
@@ -39,6 +40,7 @@ class StoreUserEdit extends FormRequest
             'email.required' => 'メールアドレスを入力してください。',
             'new-password_confirmation.confirmed' => 'パスワードが一致していません。',
             'new-password.CustomPasswordValidation' => 'パスワードは半角英字（小文字）、半角英字（大文字）、半角数字を１文字以上含む8文字以上で入力してください。',
+            'user_file.required' => 'アイコン画像をアップロードしてください。',
         ];
 
     }   
