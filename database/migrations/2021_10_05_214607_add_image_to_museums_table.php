@@ -14,7 +14,7 @@ class AddImageToMuseumsTable extends Migration
     public function up()
     {
         Schema::table('museums', function (Blueprint $table) {
-            $table->string('museum_image');
+            $table->text('museum_image')->nullable();
         });
     }
 
