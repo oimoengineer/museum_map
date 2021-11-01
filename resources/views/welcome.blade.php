@@ -23,7 +23,7 @@
                     </div><!-- /.d-flex -->
                 </div><!-- /.content -->
                 <div class="key_visual">
-                    <img src="{{asset('storage/image/key_visual.png')}}" alt="メイン画像">
+                    <img src="{{asset('/storage/image/key_visual.png')}}" alt="メイン画像">
                 </div><!-- /.key_visual -->
             </div><!-- /.d-flex -->
 
