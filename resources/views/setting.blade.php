@@ -8,7 +8,7 @@
     <div class="d-flex">
       <p>アイコン</p>
       @if ($user->image !== null && $user->image !== "")
-        <img src="{{asset('storage/'.$user->image)}}" alt="アイコン画像" width="80px" class="mb-4 ms-3 border border-dark p-1">
+        <img src="{{asset('image/'.$user->image)}}" alt="アイコン画像" width="80px" class="mb-4 ms-3 border border-dark p-1">
       @else
         <img src="{{asset('storage/image/user_image.png')}}" alt="no image" width="80px" class="mb-4 ms-3 border border-dark p-1">
       @endif
