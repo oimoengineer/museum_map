@@ -4,7 +4,7 @@
   <h1>新規投稿</h1>
   <p class="fs-5">おすすめの美術館を追加する</p>
   {{Form::open(['route' => 'museum.store','files' => true])}}
-    <div class="form-group mb-4">
+    <div class="form-select mb-4">
       {{ Form::label('category_id', 'カテゴリ') }}
       {{ Form::select('category_id', $categories, ['class' => 'form-select']) }}
     </div><!-- /.form-group -->
