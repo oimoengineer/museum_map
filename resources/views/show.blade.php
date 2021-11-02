@@ -23,7 +23,7 @@
           <br>登録されていません</p>
           @else
           <p class="mt-1"><span class='fw-bold'>URL</span>
-          <br><a href="{{$museum->museum_url}}">{{$museum->museum_url}}</a></p>
+          <br><a href="{{$museum->url}}">{{$museum->url}}</a></p>
           @endif
           <p class="mt-1"><span class='fw-bold'>住所</span>
           <br>{{$museum->address}}</p>
