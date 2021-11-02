@@ -46,7 +46,7 @@
       @if ($user->image !== null && $user->image !== "")
         <img src="{{asset('storage/'.$user->image)}}" alt="アイコン画像" width="80px" height="70px" class="me-2">
       @else
-        <img src="{{asset('storage/image/user_image.png')}}" alt="no image" width="80px" height="70px" class="me-2">
+        <img src="{{asset('image/user_image.png')}}" alt="no image" width="80px" height="70px" class="me-2">
       @endif
     <div class="border border-1 rounded border-dark p-3 mb-4" style="width: 100%;">
       <p>{{$museum->comment}}</p>
