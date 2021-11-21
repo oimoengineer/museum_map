@@ -82,7 +82,7 @@ class MuseumController extends Controller
         $museum->category_id = request('category_id');
         $museum->comment = request('comment');
         $filename = $request->file('thefile')->store('public');
-        $museum->image = str_replace('public/', '', $filename);
+        $museum->museum_image = str_replace('public/', '', $filename);
         $museum->user_id = $user->id;
         $museum->save();
 
