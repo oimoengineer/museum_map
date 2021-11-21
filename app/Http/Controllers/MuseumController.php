@@ -32,7 +32,7 @@ class MuseumController extends Controller
     public function index() 
     {
         $museum = new Museum;
-        \Storage::disk('local')->exists('public/storage/'.$museum->image);
+        \Storage::disk('local')->exists('public/storage/'.$museum->museum_image);
         $museums = \App\Museum::orderBy('created_at', 'desc')->paginate(9);
         return view('index', ['museums' => $museums, 'museum' => $museum]);
     }
