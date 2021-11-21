@@ -70,11 +70,11 @@ class MuseumController extends Controller
         $datum = [
             'name' => $name_01,
             'name' => $name_02,
-            'name' => $name_03,
+            'name' => $name_03
         ];
         DB::table('categories')->insert($datum);
 
-        // $categories = Category::all()->pluck('name', 'id');
+        $categories = Category::all()->pluck('name', 'id');
         return view('new', ['categories' => $categories]);
     }
 
