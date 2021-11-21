@@ -14,7 +14,7 @@ class RemoveImageFromMuseumsTable extends Migration
     public function up()
     {
         Schema::table('museums', function (Blueprint $table) {
-            $table->dropColumn('image');
+            $table->dropColumn('url');
         });
     }
 
