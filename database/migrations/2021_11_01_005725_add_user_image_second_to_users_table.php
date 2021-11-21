@@ -14,7 +14,7 @@ class AddUserImageSecondToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->text('image')->nullable();
+            $table->text('user_image')->nullable();
         });
     }
 
