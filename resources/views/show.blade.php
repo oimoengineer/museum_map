@@ -11,7 +11,7 @@
   <h1 class="align-self-center me-2 mb-4">{{$museum->name}}</h1>
   <div class="show_flex">
   @if ($museum->image !== null && $museum->image !== "")
-  <img src="{{asset('storage/'.$museum->image)}}" alt="美術館・博物館・ギャラリーの写真" ">
+  <img src="{{asset('storage/'.$museum->museum_image)}}" alt="美術館・博物館・ギャラリーの写真" ">
   @else
     <img src="{{ asset('storage/image/no_image.jpg')}}" alt="no image" ">
   @endif
@@ -23,7 +23,7 @@
           <br>登録されていません</p>
           @else
           <p class="mt-1"><span class='fw-bold'>URL</span>
-          <br><a href="{{$museum->url}}">{{$museum->url}}</a></p>
+          <br><a href="{{$museum->museum_url}}">{{$museum->url}}</a></p>
           @endif
           <p class="mt-1"><span class='fw-bold'>住所</span>
           <br>{{$museum->address}}</p>
