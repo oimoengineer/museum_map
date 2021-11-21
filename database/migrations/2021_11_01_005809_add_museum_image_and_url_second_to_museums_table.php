@@ -14,7 +14,7 @@ class AddMuseumImageAndUrlSecondToMuseumsTable extends Migration
     public function up()
     {
         Schema::table('museums', function (Blueprint $table) {
-            $table->text('museum_image')->nullable();
+            $table->dropColumn('image');
             $table->text('museum_url')->nullable();
         });
     }
