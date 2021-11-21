@@ -23,7 +23,7 @@ class UseController extends Controller
     public function index()
     {
         $user = \Auth::user();
-        \Storage::disk('local')->exists('public/storage/profile_images/'.$user->image);
+        \Storage::disk('local')->exists('public/storage/profile_images/'.$user->user_image);
         return view('setting', ['user' => $user] );
     }
 
@@ -88,7 +88,7 @@ class UseController extends Controller
         $user->email = request('email');
         $user->password = bcrypt($request->get('new-password'));
         $filename = $request->file('user_file')->store('public');
-        $user->image = str_replace('public/', '', $filename);
+        $user->user_image = str_replace('public/', '', $filename);
         $user->save();
         return redirect()->back()->with('update_password_success', 'ユーザー情報を更新しました');
     }
