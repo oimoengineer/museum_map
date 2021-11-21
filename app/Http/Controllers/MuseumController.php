@@ -109,7 +109,7 @@ class MuseumController extends Controller
     public function show($id, Request $request)
     {
         $museum = Museum::find($id);
-        \Storage::disk('local')->exists('public/storage/'.$museum->image);
+        \Storage::disk('local')->exists('public/storage/'.$museum->museum_image);
         $user = \Auth::user();
         \Storage::disk('local')->exists('public/storage/profile_images'.$user->image);
         if ($user) {
@@ -151,7 +151,7 @@ class MuseumController extends Controller
         $museum->category_id = request('category_id');
         $museum->comment = request('comment');
         $filename = $request->file('thefile')->store('public');
-        $museum->image = str_replace('public/', '', $filename);
+        $museum->museum_image = str_replace('public/', '', $filename);
         $museum->user_id = $user->id;
         $museum->save();
 
