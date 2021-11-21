@@ -7,6 +7,7 @@ use App\Museum;
 use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreMuseumPost;
 
 class MuseumController extends Controller
@@ -62,6 +63,17 @@ class MuseumController extends Controller
      */
     public function create()
     {
+        
+        $name_01 = '美術館';
+        $name_02 = '博物館';
+        $name_03 = 'ギャラリー';
+        $datum = [
+            'name' => $name_01,
+            'name' => $name_02,
+            'name' => $name_03,
+        ];
+        DB::table('categories')->insert($datum);
+        
         $categories = Category::all()->pluck('name', 'id');
         return view('new', ['categories' => $categories]);
     }
