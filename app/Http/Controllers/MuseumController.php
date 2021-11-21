@@ -72,9 +72,8 @@ class MuseumController extends Controller
             'name' => $name_02,
             'name' => $name_03
         ];
-        
-
-        $categories = DB::table('categories')->insert($datum);
+        DB::table('categories')->insert($datum);
+        $categories = Category::all()->pluck('name', 'id');
         return view('new', ['categories' => $categories]);
     }
 
