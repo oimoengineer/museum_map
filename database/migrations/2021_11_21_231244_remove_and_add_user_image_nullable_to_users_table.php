@@ -15,7 +15,6 @@ class RemoveAndAddUserImageNullableToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('user_image');
-            $table->text('user_image')->nullable();
         });
     }
 
