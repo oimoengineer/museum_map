@@ -21,9 +21,9 @@
 <div class="card mb-4">
 <div class="card-body">
 @if ($museum->museum_image !== null && $museum->museum_image !== " ")
-  <img src="{{asset('storage/'.$museum->museum_image)}}" alt="美術館・博物館・ギャラリーの写真" style="width: 100%; max-height: 199.51px;" ">
+  <img src="{{asset('public/storage/'.$museum->museum_image)}}" alt="美術館・博物館・ギャラリーの写真" style="width: 100%; max-height: 199.51px;" ">
 @else 
-  <img src="{{asset('storage/image/no_image.jpg')}}" alt="no image" style="width: 100%;">
+  <img src="{{asset('public/storage/image/no_image.jpg')}}" alt="no image" style="width: 100%;">
 @endif
 <h4 class="card-title align-self-center mb-3 mt-3">{{ $museum->name }}</h4>
   <p class="card-text" style="text-align: left;">

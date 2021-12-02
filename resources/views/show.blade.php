@@ -11,9 +11,9 @@
   <h1 class="align-self-center me-2 mb-4">{{$museum->name}}</h1>
   <div class="show_flex">
   @if ($museum->museum_image !== null && $museum->museum_image !== " ")
-  <img src="{{asset('storage/'.$museum->museum_image)}}" alt="美術館・博物館・ギャラリーの写真">
+  <img src="{{asset('public/storage/'.$museum->museum_image)}}" alt="美術館・博物館・ギャラリーの写真">
   @else
-    <img src="{{ asset('image/no_image.jpg')}}" alt="no image"> 
+    <img src="{{ asset('public/image/no_image.jpg')}}" alt="no image"> 
   @endif
   <div class="show_info">
           <p><span class='fw-bold'>カテゴリ</span><br>
