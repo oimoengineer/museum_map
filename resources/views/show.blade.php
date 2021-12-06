@@ -37,7 +37,7 @@
       </div>
       <div id='map'></div>
         <script src="{{ asset('/js/result.js')}}"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JPkey=AIzaSyBIceH7-qsqc89r2ebp7754w9Ip1QeLyPM&callback=initMap" async defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JPkey=AIzaSyBIceH7-qsqc89r2ebp7754w9Ip1QeLyPM;q={{ $museum->museum_url }}" async defer></script>
       </div><!-- /.row -->
       </div>
     </div><!-- /.show_content -->
