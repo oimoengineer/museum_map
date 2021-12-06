@@ -32,7 +32,7 @@ class MuseumController extends Controller
     public function index() 
     {
         $museum = new Museum;
-        \Storage::disk('local')->exists('public/storage/'.$museum->museum_image);
+        \Storage::disk('public')->exists('public/storage/'.$museum->museum_image);
         $museums = \App\Museum::orderBy('created_at', 'desc')->paginate(9);
         return view('index', ['museums' => $museums, 'museum' => $museum]);
     }
@@ -109,9 +109,9 @@ class MuseumController extends Controller
     public function show($id, Request $request)
     {
         $museum = Museum::find($id);
-        \Storage::disk('local')->exists('public/storage/'.$museum->museum_image);
+        \Storage::disk('public')->exists('public/storage/'.$museum->museum_image);
         $user = \Auth::user();
-        \Storage::disk('local')->exists('public/storage/profile_images'.$user->user_image);
+        \Storage::disk('public')->exists('public/storage/profile_images'.$user->user_image);
         if ($user) {
             $login_user_id = $user->id;
         } else {

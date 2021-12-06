@@ -23,7 +23,7 @@ class UseController extends Controller
     public function index()
     {
         $user = \Auth::user();
-        \Storage::disk('local')->exists('public/storage/profile_images/'.$user->user_image);
+        \Storage::disk('public')->exists('public/storage/profile_images/'.$user->user_image);
         return view('setting', ['user' => $user] );
     }
 
