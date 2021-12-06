@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<meta name="google-site-verification" content="yPFihAtrh454qC1z-QhfwJau9BumlpwNatnRUB9UNKs" />
   <meta charset="UTF-8">
   <meta name="description" content="おすすめの美術館をシェアするアプリ。あなたのお気に入りの美術館・博物館・ギャラリーを紹介しませんか？※機能は随時拡張予定です。">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
