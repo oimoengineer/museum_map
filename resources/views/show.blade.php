@@ -36,6 +36,7 @@
         
       </div>
       <div id='map'></div>
+      <script src="{{ asset('/js/result.js')}}"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY0m8Vf8BdYO3x0zOBahDR5PSi1D-2sFY&q={{$museum->address}}"></script>
       </div><!-- /.row -->
       </div>
