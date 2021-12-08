@@ -36,7 +36,7 @@
         
       </div>
       <iframe id='map'
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBIceH7-qsqc89r2ebp7754w9Ip1QeLyPM&q={{$museum->address}}"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY0m8Vf8BdYO3x0zOBahDR5PSi1D-2sFY&q={{$museum->address}}"
         frameborder='0'>
       </iframe>
       </div><!-- /.row -->
