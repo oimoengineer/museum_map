@@ -35,10 +35,8 @@
       <div class="mb-4">
         
       </div>
-      <iframe id='map'
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY0m8Vf8BdYO3x0zOBahDR5PSi1D-2sFY&q={{$museum->address}}"
-        frameborder='0'>
-      </iframe>
+      <div id='map'></div>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY0m8Vf8BdYO3x0zOBahDR5PSi1D-2sFY&q={{$museum->address}}"></script>
       </div><!-- /.row -->
       </div>
     </div><!-- /.show_content -->
