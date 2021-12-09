@@ -10,9 +10,9 @@
     @foreach ($museums as $museum)
       <div class="col-sm-4">
       <div class="card">
-      @if($museum->category_id === 1) 
+      <!-- @if($museum->category_id === 1) 
       <img src="{{ asset('images/show_background.png')}}" style="width:150px;">
-      @endif
+      @endif -->
       <div class="card-body">
         <h5 class="card-title">{{ optional($museum)->name }}</h5>
         <p class="card-text">
