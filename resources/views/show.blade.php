@@ -44,7 +44,7 @@
   
   <div class="d-flex comment mt-4">
       @if ($user->user_image !== null && $user->user_image !== " ")
-        <img src="{{asset('storage/'.$user->user_image)}}" alt="アイコン画像" width="80px" height="70px" class="me-2">
+        <img src="{{asset('image/user_image.png')}}" alt="アイコン画像" width="80px" height="70px" class="me-2">
       @else
         <img src="{{asset('image/user_image.png')}}" alt="no image" width="80px" height="70px" class="me-2">
       @endif
