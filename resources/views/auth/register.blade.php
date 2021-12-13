@@ -65,8 +65,7 @@
                         </div>
                     </form>
                 </div>
-                <a href="{{route('museum.list')}}" class="mb-4 ms-2">登録せずに美術館一覧を見る</a>
-            </div>
+                
         </div>
     </div>
 </div>
